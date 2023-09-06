@@ -1,0 +1,182 @@
+import numpy as np
+
+=======================================================================================================
+
+import numpy as np
+#terdapat list a dan b
+a = [1,2,3]
+b = [4,5,6]
+
+#lalu jumlahkan
+hasil = a+b
+
+print(hasil)
+
+=======================================================================================================
+
+def add(list_a, list_b):
+    result = []
+    for first, second in zip(list_a, list_b):
+        result.append(first + second)
+        return result
+
+list_a = [1,2,3]
+list_b = [4,5,6]
+
+print(add(list_a, list_b))
+
+=======================================================================================================
+
+Latihan : Membuat array dengan Numpy
+
+import numpy as np
+
+#membuat array
+nilai_siswa = np.array([85,55,40,90])
+
+#mengakses data pada array
+print(nilai_siswa[3])
+
+=======================================================================================================
+
+Program untuk mengetahui versi Numpy yang berjalan pada komputer
+
+import numpy as np
+print(np.__version__)
+
+Jika ingin membuat keterangan kode program, setting input sebagai Markdown
+kemudian ketik judul dengan “#” di awal untuk ukuran besar, atau “##” untuk ukuran sedang
+
+=======================================================================================================
+
+nama = "Dika Arnanda Putra"
+nim = 2022071014
+
+print("Hello World")
+print("Nama saya",nama,)
+print("NIM saya",nim,)
+
+=======================================================================================================
+
+if 5>2:
+    print("lima lebih besar dari 2")
+
+=======================================================================================================
+
+x = 5
+y = "john"
+
+print(x)
+print(y)
+
+=======================================================================================================
+
+x = 5
+x = "Sally"
+
+print(x)
+
+=======================================================================================================
+
+fungsi ini untuk menampilkan angka pertama pada array
+
+def getFirst(myList):
+    return myList[0]
+getFirst([1,2,3])
+
+out = 3
+
+getFirst([1,2,3,4,5,6,7,8,9,10])
+
+out = 10
+
+=======================================================================================================
+
+fungsi ini untuk menampilkan angka terakhir pada array
+
+def getLast(myList):
+    return myList[len(myList)-1]
+getLast([1,2,3])
+
+out = 3
+
+getLast([1,2,3,4,5,6,7,8,9,10])
+
+out = 10
+
+=======================================================================================================
+
+fungsi ini untuk menjumlahkan angka yang ada di array
+
+def getSum(myList):
+    sum = 0
+    for item in myList:
+        sum = sum+item
+    return sum
+
+print(getSum([1,2,3,4]))
+out = 10
+print(getSum([1,2,3]))
+out = 6
+print(getSum([1,2,3,4,5]))
+out = 15
+print(getSum([7,3,5,11,8,10]))
+out = 44
+print(getSum([-2,4,5,-7,9,4,5]))
+out = 18
+
+=======================================================================================================
+
+fungsi ini untuk mengalikan angka yang ada di array
+
+def getKali(myList):
+    kali = 1
+    for item in myList:
+        kali = kali * item
+    return kali
+
+print(getKali([1,2,3,4]))
+print(getKali([1,2,3]))
+print(getKali([1,2,3,4,5]))
+print(getKali([7,3,5,11,8,10]))
+print(getKali([-2,4,5,-7,9,4,5]))
+
+=======================================================================================================
+
+fungsi untuk membagi 2 himpunan angka, jika getSum untuk menjumlahkan angka
+
+import numpy as np
+
+def getSum(myList1, myList2):
+    sum1 = 0
+    sum2 = 0
+    for item in myList1:
+        sum1 += item
+    for item in myList2:
+        sum2 += item
+    hasil_bagi = sum1/sum2
+    return hasil_bagi
+
+print(getSum([1,2,3,4], [3,1,4,1]))
+
+=======================================================================================================
+
+fungsi untuk mengurangi 2 himpunan angka, jika getSum untuk menjumlahkan angka
+
+def getSum(myList1, myList2):
+    sum1 = 0
+    sum2 = 0
+    for item in myList1:
+        sum1 += item
+    for item in myList2:
+        sum2 += item
+    hasil_kurang = sum1-sum2
+    return hasil_kurang
+
+print(getSum([1,2,3,4], [3,1,4,1]))
+
+=======================================================================================================
+
+
+
+
