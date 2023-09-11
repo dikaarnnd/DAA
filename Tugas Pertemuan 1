@@ -158,10 +158,4 @@
     
     volume_kerucut = 1 / 3 * p * r ** 2 * t
     
-    print("Volume kerucut dari diameter", d, "dan tinggi", t, "adalah", volume_kerucut, )
-    r = d/2
-    t = 4
-    
-    volume_kerucut = 1 / 3 * phi * r**2 * t
-    
     print("Volume kerucut dari diameter", d, "dan tinggi", t, "adalah", volume_kerucut,)
