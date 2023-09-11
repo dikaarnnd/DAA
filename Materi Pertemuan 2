@@ -185,8 +185,6 @@ print(getBagi([1,2,3,4], 2))
 
 fungsi untuk membagi 2 himpunan angka, jika getSum untuk menjumlahkan angka
 
-import numpy as np
-
 def getSum(myList1, myList2):
     sum1 = 0
     sum2 = 0
@@ -197,7 +195,7 @@ def getSum(myList1, myList2):
     hasil_bagi = sum1/sum2
     return hasil_bagi
 
-print(getSum([1,2,3,4], [3,1,4,1]))
+print(getSum([1,2,3,4], [2,1,1,1]))
 
 17.=======================================================================================================
 
