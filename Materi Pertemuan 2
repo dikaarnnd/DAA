@@ -96,16 +96,16 @@ out = 1
 def getSecond(myList):
     length = len(myList)
 
-    if length % 2 == 1:     #panjang array ganjil
+    if length % 2 == 1:     #jika panjang array ganjil
         angka_tengah = myList[length // 2]
-    else:                   #panjang array genap
+    else:                   #jika panjang array genap
         second1 = myList[(length // 2) - 1]
         second2 = myList[length // 2]
         angka_tengah = (second1 + second2) // 2
         #angka_tengah = (second1 + second2) / 2
     return angka_tengah
 
-myList1 = [1,2,3,4,5,6,7]           #contoh panjang array ganjil
+myList1 = [1,2,3,4,5,6,7,8,9]           #contoh panjang array ganjil
 myList2 = [1,2,3,4,5,6,7,8,9,10]    #contoh panjang array genap
 
 tengah1 = getSecond(myList1)
