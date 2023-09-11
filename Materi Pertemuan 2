@@ -24,6 +24,8 @@ def add(list_a, list_b):
         result.append(first + second)
         return result
 
+print(add([1,2,3], [4,5,6]))
+
 4.=======================================================================================================
 
 Latihan : Membuat array dengan Numpy
@@ -168,6 +170,16 @@ print(getKali([-2,4,5,-7,9,4,5]))
 15.=======================================================================================================
 
 fungsi ini untuk membagi angka yang ada di array
+
+def getBagi(myList, angka_pembagi):
+    hasil_bagi = []
+    for item in myList:
+        hasil = item / angka_pembagi
+        hasil_bagi.append(hasil)
+    return hasil_bagi
+
+print(getBagi([1,2,3,4], 2))
+
 
 16.=======================================================================================================
 
