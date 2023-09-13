@@ -1,0 +1,100 @@
+1.  Buatlah list dengan nama “Mahasiswa” yang berisi nama, NIM, prodi, mata kuliah, tanggal hari ini, nama universitas
+    
+    import datetime
+    tanggal_hari_ini = datetime.date.today()
+    Mahasiswa = ["Dika Arnanda Putra", 2022071014, "Informatika", "Desain dan Analisis Algoritma", tanggal_hari_ini.strftime('%d-%m-%Y'), "Universitas Pembangunan Jaya"]
+    print(Mahasiswa)
+
+2.  Menampilkan suatu unsur sesuai dengan posisi index
+    bin_colors = ['Red', 'Green', 'Blue', 'Yellow']
+    print(bin_colors[1])
+
+    out = Green
+
+    jika kita memasukkan urutan index berupa string, maka terjadi kesalahan.
+
+3. Cetak NIM dengan memanggil urutan index dalam list Mahasiswa
+
+    import datetime
+    tanggal_hari_ini = datetime.date.today()
+    Mahasiswa = ["Dika Arnanda Putra", 2022071014, "Informatika", "Desain dan Analisis Algoritma", tanggal_hari_ini.strftime('%d-%m-%Y'), "Universitas Pembangunan Jaya"]
+    print(Mahasiswa[1])
+
+4.  Cetak nama universitas dengan memanggil urutan index dalam list Mahasiswa
+
+    import datetime
+    tanggal_hari_ini = datetime.date.today()
+    Mahasiswa = ["Dika Arnanda Putra", 2022071014, "Informatika", "Desain dan Analisis Algoritma", tanggal_hari_ini.strftime('%d-%m-%Y'), "Universitas Pembangunan Jaya"]
+    print(Mahasiswa[5])
+
+5.  Mengambil subset dari elemen list dengan menentukan rentang indeks disebut slicing.
+
+    #tanda ":" berfungsi untuk membatasi berapa index yang akan ditampilkan
+    #contoh [0:2], angka 0 berfungsi menampilkan isi index pada list, angka 2 berfungsi menentukan rentang sebanyak 2 isi saja dihitung dari poisi index pertama
+    bin_colors = ['Red', 'Green', 'Blue', 'Yellow']
+    print(bin_colors[0:2])
+    #result = ['Red', 'Green']
+    
+    print(bin_colors[1:2])
+    #result = ['Green']
+    
+    print(bin_colors[1:4])
+    #result = ['Green', 'Blue', 'Yellow']
+    -----------------------------------------------------------------------------
+    import datetime
+    tanggal_hari_ini = datetime.date.today()
+    Mahasiswa = ["Dika Arnanda Putra", 2022071014, "Informatika", "Desain dan Analisis Algoritma", tanggal_hari_ini.strftime('%d-%m-%Y'), "Universitas Pembangunan Jaya"]
+    print(Mahasiswa[0:3])
+    #result = ['Dika Arnanda Putra', 2022071014, 'Informatika']
+    print(Mahasiswa[1:3])
+    #result = [2022071014, 'Informatika']
+    print(Mahasiswa[2:4])
+    #result = ['Informatika', 'Desain dan Analisis Algoritma']
+
+6.  Cetak NIM dan prodi menggunakan slicing
+
+    import datetime
+    tanggal_hari_ini = datetime.date.today()
+    Mahasiswa = ["Dika Arnanda Putra", 2022071014, "Informatika", "Desain dan Analisis Algoritma", tanggal_hari_ini.strftime('%d-%m-%Y'), "Universitas Pembangunan Jaya"]
+    print(Mahasiswa[1:3])
+    #result = ['2022071014', 'Informatika']
+
+7.  Iterasi: Python memungkinkan iterasi (pengulangan) pada setiap elemen dalam daftar dengan menggunakan for loop.
+
+    bin_colors = ['Red', 'Green', 'Blue', 'Yellow']
+    for aColor in bin_colors:
+        print(aColor+" Square")
+    #result = Red Square
+              Green Square
+              Blue Square
+              Yellow Square
+
+    -----------------------------------------------------------------------------
+    import datetime
+    tanggal_hari_ini = datetime.date.today()
+    Mahasiswa = ["Dika Arnanda Putra", "2022071014", "Informatika", "Desain dan Analisis Algoritma", tanggal_hari_ini.strftime('%d-%m-%Y'), "Universitas Pembangunan Jaya"]
+    for aMahasiswa in Mahasiswa:
+        print(aMahasiswa+" Square")
+
+8.  Cetak isi list “Mahasiswa”, tambahkan kata “UPJ” di depan!
+
+    import datetime
+    tanggal_hari_ini = datetime.date.today()
+    Mahasiswa = ["Dika Arnanda Putra", "2022071014", "Informatika", "Desain dan Analisis Algoritma", tanggal_hari_ini.strftime('%d-%m-%Y'), "Universitas Pembangunan Jaya"]
+    for aMahasiswa in Mahasiswa:
+        print("UPJ "+aMahasiswa)
+
+9.  Struktur data dalam python: Tuples
+    Tuple adalah struktur data yang tidak dapat diubah (read-only). Tuple terdiri dari beberapa elemen yang dikelilingi oleh ().
+
+    bin_colors = ('Red', 'Green', 'Blue', 'Yellow')
+    print(bin_colors[1:])
+    #result = ('Green', 'Blue', 'Yellow')
+    print(bin_colors[2:])
+    #result = ('Blue', 'Yellow')
+
+
+
+
+
+
