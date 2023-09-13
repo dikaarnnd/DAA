@@ -93,6 +93,123 @@
     print(bin_colors[2:])
     #result = ('Blue', 'Yellow')
 
+10. Susun Tuple bernama “UPJ”,  isi dengan Universitas, Pembangunan, Jaya
+
+    UPJ = ('Universita', 'Pembangunan', 'Jaya')
+    print(UPJ)
+    #result = ('Universita', 'Pembangunan', 'Jaya')
+    print(UPJ[1:])
+    #result = ('Pembangunan', 'Jaya')
+
+11. Nested Tuples
+
+    hariAwal = ("Senin", "Selasa", "Rabu")
+    hariAkhir = ("Kamis", "Jumat", "Sabtu")
+    
+    hari = (hariAwal, hariAkhir)
+    print(hari)
+    #result = (('Senin', 'Selasa', 'Rabu'), ('Kamis', 'Jumat', 'Sabtu'))
+    
+    
+    hariAwal = ("Senin, Selasa, Rabu")
+    hariAkhir = ("Kamis, Jumat, Sabtu")
+    
+    hari = (hariAwal, hariAkhir)
+    print(hari)
+    #result = ('Senin, Selasa, Rabu', 'Kamis, Jumat, Sabtu')
+
+12. Nested tuples
+
+    pertama = ("100")
+    kedua = ("200", "400", "600")
+    ketiga = ("300")
+    keempat = ("400", "800")
+    
+    nested_tuple = pertama, kedua, ketiga, keempat
+    print(nested_tuple)
+    #result = ('100', ('200', '400', '600'), '300', ('400', '800'))
+
+13. Dictionary
+
+    bin_colors = {"manual color": "Yellow", "approved_color": "Green", "refused_color": "Red"}
+    print (bin_colors)
+    #result = {'manual color': 'Yellow', 'approved_color': 'Green', 'refused_color': 'Red'}
+    
+    #Fungsi get dapat digunakan untuk mengambil nilai yang terkait dengan key
+    print(bin_colors.get('approved_color'))
+    #result = Green
+    
+    #Untuk memperbarui nilai yang terkait dengan key
+    bin_colors['approved_color'] = "Purple"
+    print(bin_colors)
+    #result = {'manual color': 'Yellow', 'approved_color': 'Purple', 'refused_color': 'Red'}
+
+
+14. Latihan Dictionary
+
+    latihan = {"Nama": "Dika Arnanda Putra", "NIM": "2022071014", "Prodi": "Informatika", "Universitas": "UPJ"}
+    print (latihan)
+    #result = {'Nama': 'Dika Arnanda Putra', 'NIM': '2022071014', 'Prodi': 'Informatika', 'Universitas': 'UPJ'}
+    
+    #Fungsi get dapat digunakan untuk mengambil nilai yang terkait dengan key
+    print(latihan.get('Nama'))
+    #result = Dika Arnanda Putra
+    
+    #Untuk memperbarui nilai yang terkait dengan key
+    latihan['Nama'] = "Gregorius"
+    print(latihan)
+    #result = {'Nama': 'Gregorius', 'NIM': '2022071014', 'Prodi': 'Informatika', 'Universitas': 'UPJ'}
+
+15. Tuple acak berisi nilai boolean, dictionary dan list
+
+    acak = (True, {'name' : 'depotkode','status': 'alive'}, [1,2,3])
+    print(acak)
+    #result = (True, {'name': 'depotkode', 'status': 'alive'}, [1, 2, 3])
+
+16. Sets
+
+    Set didefinisikan sebagai kumpulan elemen yang dapat berbeda jenis. Elemen-elemen diapit di dalam {}.
+
+    green = {'grass', 'leaves'}
+    print(green)
+    #result = {'grass', 'leaves'}
+
+    Karakteristik yang menentukan dari suatu set adalah bahwa ia hanya menyimpan nilai yang berbeda dari setiap elemen.
+    Jika coba menambahkan elemen redundan lainnya, itu akan mengabaikannya
+
+    green = {'grass', 'leaves', 'leaves'}
+    print(green)
+    #result = {'grass', 'leaves'}
+
+17. Inisiasi sets dan mengubah list menjadi sets
+
+    #Inisiasi Set
+    set_01 = {4,5,6,2}
+    print(set_01)
+    #result = {2, 4, 5, 6}
+    
+    #inisiasi mengubah list menjadi set
+    set_02 = set()
+    set_03 = set([2,1,4,3])
+    print(type(set_02))
+    #result = <class 'set'>
+    print(set_03)
+    #result = {1, 2, 3, 4}
+
+    Note: Sets merupakan struktur data yang tidak memiliki urutan atau index. Jadi, jika kita ingin mengambil suatu nilai
+    menggunakan index, akan terjadi error.
+    Karena tidak dapat memiliki index, maka untuk menghapus anggota set menggunakan dua metode yaitu discard() dan remove()
+
+    Menambah anggota set dapat dilakukan dengan menggunakan metode add() yang digunakan untuk menambahkan hanya satu anggota pada set.
+    contoh:
+
+    set_04 = {2,3,4,5,6}
+    set_04.add(1)
+    print(set_04)
+    #result = {1, 2, 3, 4, 5, 6}
+
+
+    
 
 
 
