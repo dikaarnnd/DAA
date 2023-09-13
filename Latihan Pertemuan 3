@@ -198,7 +198,14 @@
 
     Note: Sets merupakan struktur data yang tidak memiliki urutan atau index. Jadi, jika kita ingin mengambil suatu nilai
     menggunakan index, akan terjadi error.
+
     Karena tidak dapat memiliki index, maka untuk menghapus anggota set menggunakan dua metode yaitu discard() dan remove()
+    contoh:
+
+    set_04= {1, 2, 3, 4, 5, 6, 7, 8}
+    set_04.discard(4)#menghapus nilai 4
+    print(set_04)
+    #result = {1, 2, 3, 5, 6, 7, 8}
 
     Menambah anggota set dapat dilakukan dengan menggunakan metode add() yang digunakan untuk menambahkan hanya satu anggota pada set.
     contoh:
@@ -208,7 +215,53 @@
     print(set_04)
     #result = {1, 2, 3, 4, 5, 6}
 
+18. Union Set
+    Union adalah saat kita menggabungkan semua anggota set.
 
+    set_A = {1,2,3,4}
+    set_B = {3,4,5,6}
+    
+    #cara 1
+    print(set_A | set_B)
+    #result = {1, 2, 3, 4, 5, 6}
+    
+    #cara 2
+    print(set_A.union(set_B))
+    #result = {1, 2, 3, 4, 5, 6}
+
+19. Intersection/Irisan set
+    Intersection adalah irisan, dimana kita mencari nilai irisan dari dua buah set.
+
+    set_A = {1,2,3,4}
+    set_B = {3,4,5,6}
+    
+    #cara 1
+    print(set_A & set_B)
+    #result = {3, 4}
+    
+    #cara 2
+    print(set_A.intersection(set_B))
+    #result = {3, 4}
+
+20. Difference set
+    Difference adalah operasi saat kita mencari perbedaan anggota dari dua buah set atau lebih.
+
+    set_A = {1,2,3,4}
+    set_B = {3,4,5,6}
+    
+    #A - B
+    #cara 1
+    print(set_A - set_B)
+    print(set_A.difference(set_B))
+    #result = {1, 2}
+    
+    #B - A
+    #cara 2
+    print(set_B - set_A)
+    print(set_B.difference(set_A))
+    #result = {5, 6}
+
+    
     
 
 
