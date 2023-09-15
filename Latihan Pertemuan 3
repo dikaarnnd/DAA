@@ -1,269 +1,349 @@
-1.  Buatlah list dengan nama “Mahasiswa” yang berisi nama, NIM, prodi, mata kuliah, tanggal hari ini, nama universitas
+Buatlah list dengan nama “Mahasiswa” yang berisi nama, NIM, prodi, mata kuliah, tanggal hari ini, nama universitas
     
-    import datetime
-    tanggal_hari_ini = datetime.date.today()
-    Mahasiswa = ["Dika Arnanda Putra", 2022071014, "Informatika", "Desain dan Analisis Algoritma", tanggal_hari_ini.strftime('%d-%m-%Y'), "Universitas Pembangunan Jaya"]
-    print(Mahasiswa)
+import datetime
+tanggal_hari_ini = datetime.date.today()
+Mahasiswa = ["Dika Arnanda Putra", 2022071014, "Informatika", "Desain dan Analisis Algoritma", tanggal_hari_ini.strftime('%d-%m-%Y'), "Universitas Pembangunan Jaya"]
+print(Mahasiswa)
+=====================================================================================================================================================================
+Menampilkan suatu unsur sesuai dengan posisi index
+bin_colors = ['Red', 'Green', 'Blue', 'Yellow']
+print(bin_colors[1])
+#result = Green
 
-2.  Menampilkan suatu unsur sesuai dengan posisi index
-    bin_colors = ['Red', 'Green', 'Blue', 'Yellow']
-    print(bin_colors[1])
+jika kita memasukkan urutan index berupa string, maka terjadi kesalahan.
+=====================================================================================================================================================================
+Cetak NIM dengan memanggil urutan index dalam list Mahasiswa
 
-    out = Green
+import datetime
+tanggal_hari_ini = datetime.date.today()
+Mahasiswa = ["Dika Arnanda Putra", 2022071014, "Informatika", "Desain dan Analisis Algoritma", tanggal_hari_ini.strftime('%d-%m-%Y'), "Universitas Pembangunan Jaya"]
+print(Mahasiswa[1])
+=====================================================================================================================================================================
+Cetak nama universitas dengan memanggil urutan index dalam list Mahasiswa
 
-    jika kita memasukkan urutan index berupa string, maka terjadi kesalahan.
+import datetime
+tanggal_hari_ini = datetime.date.today()
+Mahasiswa = ["Dika Arnanda Putra", 2022071014, "Informatika", "Desain dan Analisis Algoritma", tanggal_hari_ini.strftime('%d-%m-%Y'), "Universitas Pembangunan Jaya"]
+print(Mahasiswa[5])
+=====================================================================================================================================================================
+Mengambil subset dari elemen list dengan menentukan rentang indeks disebut slicing.
 
-3. Cetak NIM dengan memanggil urutan index dalam list Mahasiswa
-
-    import datetime
-    tanggal_hari_ini = datetime.date.today()
-    Mahasiswa = ["Dika Arnanda Putra", 2022071014, "Informatika", "Desain dan Analisis Algoritma", tanggal_hari_ini.strftime('%d-%m-%Y'), "Universitas Pembangunan Jaya"]
-    print(Mahasiswa[1])
-
-4.  Cetak nama universitas dengan memanggil urutan index dalam list Mahasiswa
-
-    import datetime
-    tanggal_hari_ini = datetime.date.today()
-    Mahasiswa = ["Dika Arnanda Putra", 2022071014, "Informatika", "Desain dan Analisis Algoritma", tanggal_hari_ini.strftime('%d-%m-%Y'), "Universitas Pembangunan Jaya"]
-    print(Mahasiswa[5])
-
-5.  Mengambil subset dari elemen list dengan menentukan rentang indeks disebut slicing.
-
-    #tanda ":" berfungsi untuk membatasi berapa index yang akan ditampilkan
-    #contoh [0:2], angka 0 berfungsi menampilkan isi index pada list, angka 2 berfungsi menentukan rentang sebanyak 2 isi saja dihitung dari poisi index pertama
-    bin_colors = ['Red', 'Green', 'Blue', 'Yellow']
-    print(bin_colors[0:2])
-    #result = ['Red', 'Green']
+#tanda ":" berfungsi untuk membatasi berapa index yang akan ditampilkan
+#contoh [0:2], angka 0 berfungsi menampilkan isi index pada list, angka 2 berfungsi menentukan rentang sebanyak 2 isi saja dihitung dari poisi index pertama
+bin_colors = ['Red', 'Green', 'Blue', 'Yellow']
+print(bin_colors[0:2])
+#result = ['Red', 'Green']
     
-    print(bin_colors[1:2])
-    #result = ['Green']
+print(bin_colors[1:2])
+#result = ['Green']
     
-    print(bin_colors[1:4])
-    #result = ['Green', 'Blue', 'Yellow']
-    -----------------------------------------------------------------------------
-    import datetime
-    tanggal_hari_ini = datetime.date.today()
-    Mahasiswa = ["Dika Arnanda Putra", 2022071014, "Informatika", "Desain dan Analisis Algoritma", tanggal_hari_ini.strftime('%d-%m-%Y'), "Universitas Pembangunan Jaya"]
-    print(Mahasiswa[0:3])
-    #result = ['Dika Arnanda Putra', 2022071014, 'Informatika']
-    print(Mahasiswa[1:3])
-    #result = [2022071014, 'Informatika']
-    print(Mahasiswa[2:4])
-    #result = ['Informatika', 'Desain dan Analisis Algoritma']
+print(bin_colors[1:4])
+#result = ['Green', 'Blue', 'Yellow']
+-----------------------------------------------------------------------------
+import datetime
+tanggal_hari_ini = datetime.date.today()
+Mahasiswa = ["Dika Arnanda Putra", 2022071014, "Informatika", "Desain dan Analisis Algoritma", tanggal_hari_ini.strftime('%d-%m-%Y'), "Universitas Pembangunan Jaya"]
+print(Mahasiswa[0:3])
+#result = ['Dika Arnanda Putra', 2022071014, 'Informatika']
+print(Mahasiswa[1:3])
+#result = [2022071014, 'Informatika']
+print(Mahasiswa[2:4])
+#result = ['Informatika', 'Desain dan Analisis Algoritma']
+=====================================================================================================================================================================
+Cetak NIM dan prodi menggunakan slicing
 
-6.  Cetak NIM dan prodi menggunakan slicing
+import datetime
+tanggal_hari_ini = datetime.date.today()
+Mahasiswa = ["Dika Arnanda Putra", 2022071014, "Informatika", "Desain dan Analisis Algoritma", tanggal_hari_ini.strftime('%d-%m-%Y'), "Universitas Pembangunan Jaya"]
+print(Mahasiswa[1:3])
+#result = ['2022071014', 'Informatika']
+=====================================================================================================================================================================
+Iterasi: Python memungkinkan iterasi (pengulangan) pada setiap elemen dalam daftar dengan menggunakan for loop.
 
-    import datetime
-    tanggal_hari_ini = datetime.date.today()
-    Mahasiswa = ["Dika Arnanda Putra", 2022071014, "Informatika", "Desain dan Analisis Algoritma", tanggal_hari_ini.strftime('%d-%m-%Y'), "Universitas Pembangunan Jaya"]
-    print(Mahasiswa[1:3])
-    #result = ['2022071014', 'Informatika']
+bin_colors = ['Red', 'Green', 'Blue', 'Yellow']
+for aColor in bin_colors:
+    print(aColor+" Square")
+#result =   Red Square
+            Green Square
+            Blue Square
+            Yellow Square
 
-7.  Iterasi: Python memungkinkan iterasi (pengulangan) pada setiap elemen dalam daftar dengan menggunakan for loop.
+-----------------------------------------------------------------------------
+import datetime
+tanggal_hari_ini = datetime.date.today()
+Mahasiswa = ["Dika Arnanda Putra", "2022071014", "Informatika", "Desain dan Analisis Algoritma", tanggal_hari_ini.strftime('%d-%m-%Y'), "Universitas Pembangunan Jaya"]
+for aMahasiswa in Mahasiswa:
+    print(aMahasiswa+" Square")
+=====================================================================================================================================================================
+Cetak isi list “Mahasiswa”, tambahkan kata “UPJ” di depan!
 
-    bin_colors = ['Red', 'Green', 'Blue', 'Yellow']
-    for aColor in bin_colors:
-        print(aColor+" Square")
-    #result = Red Square
-              Green Square
-              Blue Square
-              Yellow Square
+import datetime
+tanggal_hari_ini = datetime.date.today()
+Mahasiswa = ["Dika Arnanda Putra", "2022071014", "Informatika", "Desain dan Analisis Algoritma", tanggal_hari_ini.strftime('%d-%m-%Y'), "Universitas Pembangunan Jaya"]
+for aMahasiswa in Mahasiswa:
+    print("UPJ "+aMahasiswa)
+=====================================================================================================================================================================
+Struktur data dalam python: Tuples
+Tuple adalah struktur data yang tidak dapat diubah (read-only). Tuple terdiri dari beberapa elemen yang dikelilingi oleh ().
 
-    -----------------------------------------------------------------------------
-    import datetime
-    tanggal_hari_ini = datetime.date.today()
-    Mahasiswa = ["Dika Arnanda Putra", "2022071014", "Informatika", "Desain dan Analisis Algoritma", tanggal_hari_ini.strftime('%d-%m-%Y'), "Universitas Pembangunan Jaya"]
-    for aMahasiswa in Mahasiswa:
-        print(aMahasiswa+" Square")
+bin_colors = ('Red', 'Green', 'Blue', 'Yellow')
+print(bin_colors[1:])
+#result = ('Green', 'Blue', 'Yellow')
+print(bin_colors[2:])
+#result = ('Blue', 'Yellow')
+=====================================================================================================================================================================
+Susun Tuple bernama “UPJ”,  isi dengan Universitas, Pembangunan, Jaya
 
-8.  Cetak isi list “Mahasiswa”, tambahkan kata “UPJ” di depan!
+UPJ = ('Universita', 'Pembangunan', 'Jaya')
+print(UPJ)
+#result = ('Universita', 'Pembangunan', 'Jaya')
+print(UPJ[1:])
+#result = ('Pembangunan', 'Jaya')
+=====================================================================================================================================================================
+Nested Tuples
 
-    import datetime
-    tanggal_hari_ini = datetime.date.today()
-    Mahasiswa = ["Dika Arnanda Putra", "2022071014", "Informatika", "Desain dan Analisis Algoritma", tanggal_hari_ini.strftime('%d-%m-%Y'), "Universitas Pembangunan Jaya"]
-    for aMahasiswa in Mahasiswa:
-        print("UPJ "+aMahasiswa)
-
-9.  Struktur data dalam python: Tuples
-    Tuple adalah struktur data yang tidak dapat diubah (read-only). Tuple terdiri dari beberapa elemen yang dikelilingi oleh ().
-
-    bin_colors = ('Red', 'Green', 'Blue', 'Yellow')
-    print(bin_colors[1:])
-    #result = ('Green', 'Blue', 'Yellow')
-    print(bin_colors[2:])
-    #result = ('Blue', 'Yellow')
-
-10. Susun Tuple bernama “UPJ”,  isi dengan Universitas, Pembangunan, Jaya
-
-    UPJ = ('Universita', 'Pembangunan', 'Jaya')
-    print(UPJ)
-    #result = ('Universita', 'Pembangunan', 'Jaya')
-    print(UPJ[1:])
-    #result = ('Pembangunan', 'Jaya')
-
-11. Nested Tuples
-
-    hariAwal = ("Senin", "Selasa", "Rabu")
-    hariAkhir = ("Kamis", "Jumat", "Sabtu")
+hariAwal = ("Senin", "Selasa", "Rabu")
+hariAkhir = ("Kamis", "Jumat", "Sabtu")
     
-    hari = (hariAwal, hariAkhir)
-    print(hari)
-    #result = (('Senin', 'Selasa', 'Rabu'), ('Kamis', 'Jumat', 'Sabtu'))
+hari = (hariAwal, hariAkhir)
+print(hari)
+#result = (('Senin', 'Selasa', 'Rabu'), ('Kamis', 'Jumat', 'Sabtu'))
+-----------------------------------------------------------------------------
+hariAwal = ("Senin, Selasa, Rabu")
+hariAkhir = ("Kamis, Jumat, Sabtu")
     
+hari = (hariAwal, hariAkhir)
+print(hari)
+#result = ('Senin, Selasa, Rabu', 'Kamis, Jumat, Sabtu')
+=====================================================================================================================================================================
+Nested tuples
+
+pertama = ("100")
+kedua = ("200", "400", "600")
+ketiga = ("300")
+keempat = ("400", "800")
     
-    hariAwal = ("Senin, Selasa, Rabu")
-    hariAkhir = ("Kamis, Jumat, Sabtu")
+nested_tuple = pertama, kedua, ketiga, keempat
+print(nested_tuple)
+#result = ('100', ('200', '400', '600'), '300', ('400', '800'))
+=====================================================================================================================================================================
+Dictionary
+
+bin_colors = {"manual color": "Yellow", "approved_color": "Green", "refused_color": "Red"}
+print (bin_colors)
+#result = {'manual color': 'Yellow', 'approved_color': 'Green', 'refused_color': 'Red'}
     
-    hari = (hariAwal, hariAkhir)
-    print(hari)
-    #result = ('Senin, Selasa, Rabu', 'Kamis, Jumat, Sabtu')
-
-12. Nested tuples
-
-    pertama = ("100")
-    kedua = ("200", "400", "600")
-    ketiga = ("300")
-    keempat = ("400", "800")
+#Fungsi get dapat digunakan untuk mengambil nilai yang terkait dengan key
+print(bin_colors.get('approved_color'))
+#result = Green
     
-    nested_tuple = pertama, kedua, ketiga, keempat
-    print(nested_tuple)
-    #result = ('100', ('200', '400', '600'), '300', ('400', '800'))
+#Untuk memperbarui nilai yang terkait dengan key
+bin_colors['approved_color'] = "Purple"
+print(bin_colors)
+#result = {'manual color': 'Yellow', 'approved_color': 'Purple', 'refused_color': 'Red'}
+=====================================================================================================================================================================
+Latihan Dictionary
 
-13. Dictionary
-
-    bin_colors = {"manual color": "Yellow", "approved_color": "Green", "refused_color": "Red"}
-    print (bin_colors)
-    #result = {'manual color': 'Yellow', 'approved_color': 'Green', 'refused_color': 'Red'}
+latihan = {"Nama": "Dika Arnanda Putra", "NIM": "2022071014", "Prodi": "Informatika", "Universitas": "UPJ"}
+print (latihan)
+#result = {'Nama': 'Dika Arnanda Putra', 'NIM': '2022071014', 'Prodi': 'Informatika', 'Universitas': 'UPJ'}
     
-    #Fungsi get dapat digunakan untuk mengambil nilai yang terkait dengan key
-    print(bin_colors.get('approved_color'))
-    #result = Green
+#Fungsi get dapat digunakan untuk mengambil nilai yang terkait dengan key
+print(latihan.get('Nama'))
+#result = Dika Arnanda Putra
     
-    #Untuk memperbarui nilai yang terkait dengan key
-    bin_colors['approved_color'] = "Purple"
-    print(bin_colors)
-    #result = {'manual color': 'Yellow', 'approved_color': 'Purple', 'refused_color': 'Red'}
+#Untuk memperbarui nilai yang terkait dengan key
+latihan['Nama'] = "Gregorius"
+print(latihan)
+#result = {'Nama': 'Gregorius', 'NIM': '2022071014', 'Prodi': 'Informatika', 'Universitas': 'UPJ'}
+=====================================================================================================================================================================
+Tuple acak berisi nilai boolean, dictionary dan list
 
+acak = (True, {'name' : 'depotkode','status': 'alive'}, [1,2,3])
+print(acak)
+#result = (True, {'name': 'depotkode', 'status': 'alive'}, [1, 2, 3])
+=====================================================================================================================================================================
+Sets
 
-14. Latihan Dictionary
+Set didefinisikan sebagai kumpulan elemen yang dapat berbeda jenis. Elemen-elemen diapit di dalam {}.
 
-    latihan = {"Nama": "Dika Arnanda Putra", "NIM": "2022071014", "Prodi": "Informatika", "Universitas": "UPJ"}
-    print (latihan)
-    #result = {'Nama': 'Dika Arnanda Putra', 'NIM': '2022071014', 'Prodi': 'Informatika', 'Universitas': 'UPJ'}
+green = {'grass', 'leaves'}
+print(green)
+#result = {'grass', 'leaves'}
+
+Karakteristik yang menentukan dari suatu set adalah bahwa ia hanya menyimpan nilai yang berbeda dari setiap elemen.
+Jika coba menambahkan elemen redundan lainnya, itu akan mengabaikannya
+
+green = {'grass', 'leaves', 'leaves'}
+print(green)
+#result = {'grass', 'leaves'}
+=====================================================================================================================================================================
+Inisiasi sets dan mengubah list menjadi sets
+
+#Inisiasi Set
+set_01 = {4,5,6,2}
+print(set_01)
+#result = {2, 4, 5, 6}
     
-    #Fungsi get dapat digunakan untuk mengambil nilai yang terkait dengan key
-    print(latihan.get('Nama'))
-    #result = Dika Arnanda Putra
+#inisiasi mengubah list menjadi set
+set_02 = set()
+set_03 = set([2,1,4,3])
+print(type(set_02))
+#result = <class 'set'>
+print(set_03)
+#result = {1, 2, 3, 4}
+
+Note: Sets merupakan struktur data yang tidak memiliki urutan atau index. Jadi, jika kita ingin mengambil suatu nilai
+menggunakan index, akan terjadi error.
+
+Karena tidak dapat memiliki index, maka untuk menghapus anggota set menggunakan dua metode yaitu discard() dan remove()
+contoh:
+
+set_04= {1, 2, 3, 4, 5, 6, 7, 8}
+set_04.discard(4)#menghapus nilai 4
+print(set_04)
+#result = {1, 2, 3, 5, 6, 7, 8}
+
+Menambah anggota set dapat dilakukan dengan menggunakan metode add() yang digunakan untuk menambahkan hanya satu anggota pada set.
+contoh:
+
+set_04 = {2,3,4,5,6}
+set_04.add(1)
+print(set_04)
+#result = {1, 2, 3, 4, 5, 6}
+=====================================================================================================================================================================
+Union Set
+Union adalah saat kita menggabungkan semua anggota set.
+
+set_A = {1,2,3,4}
+set_B = {3,4,5,6}
     
-    #Untuk memperbarui nilai yang terkait dengan key
-    latihan['Nama'] = "Gregorius"
-    print(latihan)
-    #result = {'Nama': 'Gregorius', 'NIM': '2022071014', 'Prodi': 'Informatika', 'Universitas': 'UPJ'}
-
-15. Tuple acak berisi nilai boolean, dictionary dan list
-
-    acak = (True, {'name' : 'depotkode','status': 'alive'}, [1,2,3])
-    print(acak)
-    #result = (True, {'name': 'depotkode', 'status': 'alive'}, [1, 2, 3])
-
-16. Sets
-
-    Set didefinisikan sebagai kumpulan elemen yang dapat berbeda jenis. Elemen-elemen diapit di dalam {}.
-
-    green = {'grass', 'leaves'}
-    print(green)
-    #result = {'grass', 'leaves'}
-
-    Karakteristik yang menentukan dari suatu set adalah bahwa ia hanya menyimpan nilai yang berbeda dari setiap elemen.
-    Jika coba menambahkan elemen redundan lainnya, itu akan mengabaikannya
-
-    green = {'grass', 'leaves', 'leaves'}
-    print(green)
-    #result = {'grass', 'leaves'}
-
-17. Inisiasi sets dan mengubah list menjadi sets
-
-    #Inisiasi Set
-    set_01 = {4,5,6,2}
-    print(set_01)
-    #result = {2, 4, 5, 6}
+#cara 1
+print(set_A | set_B)
+#result = {1, 2, 3, 4, 5, 6}
     
-    #inisiasi mengubah list menjadi set
-    set_02 = set()
-    set_03 = set([2,1,4,3])
-    print(type(set_02))
-    #result = <class 'set'>
-    print(set_03)
-    #result = {1, 2, 3, 4}
+#cara 2
+print(set_A.union(set_B))
+#result = {1, 2, 3, 4, 5, 6}
+=====================================================================================================================================================================
+Intersection/Irisan set
+Intersection adalah irisan, dimana kita mencari nilai irisan dari dua buah set.
 
-    Note: Sets merupakan struktur data yang tidak memiliki urutan atau index. Jadi, jika kita ingin mengambil suatu nilai
-    menggunakan index, akan terjadi error.
-
-    Karena tidak dapat memiliki index, maka untuk menghapus anggota set menggunakan dua metode yaitu discard() dan remove()
-    contoh:
-
-    set_04= {1, 2, 3, 4, 5, 6, 7, 8}
-    set_04.discard(4)#menghapus nilai 4
-    print(set_04)
-    #result = {1, 2, 3, 5, 6, 7, 8}
-
-    Menambah anggota set dapat dilakukan dengan menggunakan metode add() yang digunakan untuk menambahkan hanya satu anggota pada set.
-    contoh:
-
-    set_04 = {2,3,4,5,6}
-    set_04.add(1)
-    print(set_04)
-    #result = {1, 2, 3, 4, 5, 6}
-
-18. Union Set
-    Union adalah saat kita menggabungkan semua anggota set.
-
-    set_A = {1,2,3,4}
-    set_B = {3,4,5,6}
+set_A = {1,2,3,4}
+set_B = {3,4,5,6}
     
-    #cara 1
-    print(set_A | set_B)
-    #result = {1, 2, 3, 4, 5, 6}
+#cara 1
+print(set_A & set_B)
+#result = {3, 4}
     
-    #cara 2
-    print(set_A.union(set_B))
-    #result = {1, 2, 3, 4, 5, 6}
+#cara 2
+print(set_A.intersection(set_B))
+#result = {3, 4}
+=====================================================================================================================================================================
+Difference set
+Difference adalah operasi saat kita mencari perbedaan anggota dari dua buah set atau lebih.
 
-19. Intersection/Irisan set
-    Intersection adalah irisan, dimana kita mencari nilai irisan dari dua buah set.
+set_A = {1,2,3,4}
+set_B = {3,4,5,6}
+    
+#A - B
+#cara 1
+print(set_A - set_B)
+print(set_A.difference(set_B))
+#result = {1, 2}
+    
+#B - A
+#cara 2
+print(set_B - set_A)
+print(set_B.difference(set_A))
+#result = {5, 6}
+=====================================================================================================================================================================
+Symmetric Difference
+Symmetric Difference adalah semua anggota pada set A dan B dikurangi dengan anggota yang berada pada dua set tersebut.
 
-    set_A = {1,2,3,4}
-    set_B = {3,4,5,6}
-    
-    #cara 1
-    print(set_A & set_B)
-    #result = {3, 4}
-    
-    #cara 2
-    print(set_A.intersection(set_B))
-    #result = {3, 4}
+set_A = {1,2,3,4}
+set_B = {3,4,5,6}
 
-20. Difference set
-    Difference adalah operasi saat kita mencari perbedaan anggota dari dua buah set atau lebih.
+#cara 1
+print(set_A ^ set_B)
+#result = {1, 2, 5, 6}
 
-    set_A = {1,2,3,4}
-    set_B = {3,4,5,6}
-    
-    #A - B
-    #cara 1
-    print(set_A - set_B)
-    print(set_A.difference(set_B))
-    #result = {1, 2}
-    
-    #B - A
-    #cara 2
-    print(set_B - set_A)
-    print(set_B.difference(set_A))
-    #result = {5, 6}
+#cara 2
+print(set_A.symmetric_difference(set_B))
+#result = {1, 2, 5, 6}
+=====================================================================================================================================================================
+Latihan
 
-    
-    
+yellow = {'leaves', 'fire hydrant', 'rose', 'dandellion'}
+red = {'blood', 'fire hydrant', 'leaves'}
 
+print(yellow|red)
+print(yellow&red)
+=====================================================================================================================================================================
+DataFrames
+
+import pandas as pd
+df = pd.DataFrame([['1', 'Fares', 32, True], ['2', 'Elena', 23, False], ['3', 'Steven', 40, True]])
+df.columns = ['id', 'name', 'age', 'decision']
+print(df)
+print("======================================================")
+
+#Seleksi kolom
+print(df[['name', 'age']])
+print("======================================================")
+print(df.iloc[:,3])
+-----------------------------------------------------------------------------
+
+import pandas as pd
+df = pd.DataFrame([['1', 'Fares', 32, True], ['2', 'Elena', 23, False], ['3', 'Steven', 40, True]])
+df.columns = ['id', 'name', 'age', 'decision']
+print(df)
+print("======================================================")
+
+#Row selection
+print(df.iloc[1:3,:])
+print("======================================================")
+print(df[df.age>30])
+print("======================================================")
+print(df[(df.age<35)&(df.decision==True)])
+=====================================================================================================================================================================
+Memberikan label pada index
+contoh 1:
+import pandas as pd
+data = {'satu' : [1,1,1,1,1], 'dua' : [2,2,2,2,2], 'tiga' : [3,3,3,3,3], 'empat' : [4,4,4,4,4]}
+#sebelum
+df = pd.DataFrame(data)
+print(df)
+print("======================================================")
+
+#sesudah
+df = pd.DataFrame(data, index=['a', 'b', 'c', 'd', 'e'])
+print(df.head())
+-----------------------------------------------------------------------------
+contoh 2:
+import pandas as pd
+data = {'id' : [1,2,3], 'name' : ['Fares', 'Elena', 'Steven'], 'age' : [32, 23, 40], 'decision' : [True, False, True]}
+#sebelum
+df = pd.DataFrame(data)
+print(df)
+print("======================================================")
+
+#sesudah
+df = pd.DataFrame(data, index=['a', 'b', 'c'])
+print(df.head())
+-----------------------------------------------------------------------------
+Latihan
+cara 1:
+import pandas as pd
+data = {'No' : [1,2,3], 'Prodi' : ['Informatika', 'Sistem Informasi', 'Tenik Sipil'], 'Mahasiswa' : [50, 55, 40], 'Laki-laki' : [30, 30, 30], 'Perempuan' : [20, 25, 10]}
+df = pd.DataFrame(data)
+print(df)
+-----------------------------------------------------------------------------
+cara 2:
+import pandas as pd
+data = {'No' : [1,2,3], 'Prodi' : ['Informatika', 'Sistem Informasi', 'Teknik Sipil'], 'Mahasiswa' : [50, 55, 40], 'Laki-laki' : [30, 30, 30], 'Perempuan' : [20, 25, 10]}
+df = pd.DataFrame(data)
+print(df)
 
 
 
