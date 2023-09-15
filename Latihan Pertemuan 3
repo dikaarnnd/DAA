@@ -332,16 +332,10 @@ print("======================================================")
 df = pd.DataFrame(data, index=['a', 'b', 'c'])
 print(df.head())
 -----------------------------------------------------------------------------
-Latihan
-cara 1:
+Latihan:
+
 import pandas as pd
 data = {'No' : [1,2,3], 'Prodi' : ['Informatika', 'Sistem Informasi', 'Tenik Sipil'], 'Mahasiswa' : [50, 55, 40], 'Laki-laki' : [30, 30, 30], 'Perempuan' : [20, 25, 10]}
-df = pd.DataFrame(data)
-print(df)
------------------------------------------------------------------------------
-cara 2:
-import pandas as pd
-data = {'No' : [1,2,3], 'Prodi' : ['Informatika', 'Sistem Informasi', 'Teknik Sipil'], 'Mahasiswa' : [50, 55, 40], 'Laki-laki' : [30, 30, 30], 'Perempuan' : [20, 25, 10]}
 df = pd.DataFrame(data)
 print(df)
 
