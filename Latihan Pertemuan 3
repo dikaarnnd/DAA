@@ -386,9 +386,103 @@ import numpy as np
 vector = np.array([22,33,44,55])
 print(vector)
 print(type(vector))
+=====================================================================================================================================================================
+class Stack:
+    def __init__(self):
+        self.items = []
+    def isEmpty(self):
+        return self.items == []
+    def push(self, item):
+        self.items.append(item)
+    def pop(self):
+        return self.items.pop()
+    def peek(self):
+        return self.items[len(self.items)-1]
+    def size(self):
+        return len(self.items)
+
+stack = Stack()
+stack.push('Red')
+stack.push('Green')
+stack.push('Blue')
+stack.push('Yellow')
+
+print(stack.pop())
+#result = Yellow
+print(stack.pop())
+#result = Blue
+print(stack.pop())
+#result = Green
+print(stack.pop())
+#result = Red
+=====================================================================================================================================================================
+Queue
+
+class Queue:
+    def __init__(self):
+        self.items = []
+    def isEmpty(self):
+        return self.items == []
+    def enqueue(self, item):
+        self.items.insert(0, item)
+    def dequeue(self):
+        return self.items.pop()
+    def size(self):
+        return len(self.items)
 
 
+queue = Queue()
+queue.enqueue('Red')
+queue.enqueue('Green')
+queue.enqueue('Blue')
+queue.enqueue('Yellow')
+print(queue.size())
+#result = 4
+print(queue.dequeue())
+#result = Red
+print(queue.dequeue())
+#result = Green
+print(queue.dequeue())
+#result = Blue
+print(queue.dequeue())
+#result = Yellow
+=====================================================================================================================================================================
+Binary Tree
 
+class Node:
+    def __init__(self, data):
+        self.left = None
+        self.right = None
+        self.data = data
+    def PrintTree(self):
+        if self.left:
+            self.left.PrintTree()
+        print(self.data),
+        if self.right:
+            self.right.PrintTree()
+
+#root
+root = Node(2)
+
+#child kiri dari root
+root.left = Node(3)
+
+#child kanan dari root
+root.right = Node(5)
+
+#child kiri dari 3
+root.left.left = Node(7)
+
+#child kanan dari 3
+root.left.right = Node(9)
+
+#child kiri dari 5
+root.right.left = Node(11)
+
+#child kanan dari 5
+root.right.right = Node(13)
+
+print(root.PrintTree())
 
 
 
