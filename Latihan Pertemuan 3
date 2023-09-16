@@ -338,6 +338,60 @@ import pandas as pd
 data = {'No' : [1,2,3], 'Prodi' : ['Informatika', 'Sistem Informasi', 'Tenik Sipil'], 'Mahasiswa' : [50, 55, 40], 'Laki-laki' : [30, 30, 30], 'Perempuan' : [20, 25, 10]}
 df = pd.DataFrame(data)
 print(df)
+=====================================================================================================================================================================
+Matrix
+contoh:
+
+import numpy as np
+myMatrix = np.array([[11,12,13], [21,22,23], [31,32,33]])
+print(myMatrix)
+#result =   [[11 12 13]
+            [21 22 23]
+            [31 32 33]]
+print(type(myMatrix))
+#result = <class 'numpy.ndarray'>
+-----------------------------------------------------------------------------
+Transpose Matrix
+contoh:
+
+import numpy as np
+Matrix = np.array([[1,2,3], [4,5,6]])
+print("Matrix : ")
+print(Matrix)
+
+T_Matrix = np.transpose(Matrix)
+print("Transpose Matrix : ")
+print(T_Matrix)
+-----------------------------------------------------------------------------
+Latihan
+
+import numpy as np
+Matrix = np.array([[100,200,300], [700,600,500], [900,1000,800]])
+print("Matrix : ")
+print(Matrix)
+
+T_Matrix = np.transpose(Matrix)
+print("Transpose Matrix : ")
+print(T_Matrix)
+=====================================================================================================================================================================
+Vector
+
+#Menggunakan list python
+vector = [22,33,44,55]
+print(vector)
+print(type(vector))
+
+#Menggunakan array numpy
+import numpy as np
+vector = np.array([22,33,44,55])
+print(vector)
+print(type(vector))
+
+
+
+
+
+
 
 
 
