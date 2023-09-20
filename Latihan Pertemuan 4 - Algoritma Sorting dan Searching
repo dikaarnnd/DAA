@@ -57,11 +57,20 @@ Latihan Bubble Sort
 list = [100,20,60,90,40,30,10]
 
 lastElementIndex = len(list)-1
-print(0,list)
+print(0, list)
 for index in range(lastElementIndex):
-    if list[index]>list[index+1]:
-        list[index],list[index+1] = list[index+1],list[index]
-    print(index+1, list)
+    if list[index] > list[index + 1]:
+        list[index], list[index + 1] = list[index + 1] ,list[index]
+    print(index + 1, list)
+
+result:
+0 [100, 20, 60, 90, 40, 30, 10]
+1 [20, 100, 60, 90, 40, 30, 10]
+2 [20, 60, 100, 90, 40, 30, 10]
+3 [20, 60, 90, 100, 40, 30, 10]
+4 [20, 60, 90, 40, 100, 30, 10]
+5 [20, 60, 90, 40, 30, 100, 10]
+6 [20, 60, 90, 40, 30, 10, 100]
 ---------------------------------------------------------------------------------------------------------------------------
 def bubbleSort(list):
     lastElementIndex = len(list)-1
@@ -75,7 +84,30 @@ list = [100,20,60,90,40,30,10]
 print(bubbleSort(list))
 print(list)
 
+result:
+[10, 20, 30, 40, 60, 90, 100]
+[10, 20, 30, 40, 60, 90, 100]
+===========================================================================================================================
+Insertion Sort
 
+def insertionSort(list):
+    for i in range(1, len(list)):
+        j = i-1
+        next = list[i]
+
+        while (list[j] > next) and (j >= 0):
+            list[j+1] = list[j]
+            j=j-1
+        list[j+1] = next
+    return list
+
+list = [35,31,32,34,33,37,36]
+print(list)
+print(insertionSort(list))
+
+result:
+[35, 31, 32, 34, 33, 37, 36]
+[31, 32, 33, 34, 35, 36, 37]
 
 
 
