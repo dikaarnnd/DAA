@@ -175,6 +175,187 @@ result:
 [89, 12, 57, 16, 25]
 [12, 16, 25, 57, 89]
 ===========================================================================================================================
+Linear Search
+
+def LinearSearch(list, item):
+    index = 0
+    found = False
+
+#Mencocokkan nilai dengan setiap elemen data
+    while index < len(list) and found is False:
+        if list[index] == item:
+            found = True
+        else:
+            index = index + 1
+    return found
+
+list = [12,33,11,99,22,55,90]
+print(LinearSearch(list, 12))
+#result = True
+print(LinearSearch(list, 91))
+#result = False
+===========================================================================================================================
+Latihan Linear Search
+
+def LinearSearch(list, item):
+    index = 0
+    found = False
+
+#Mencocokkan nilai dengan setiap elemen data
+    while index < len(list) and found is False:
+        if list[index] == item:
+            found = True
+        else:
+            index = index + 1
+    return found
+
+list = ["y","u","i","w","o","a","q","u","j","p"]
+print(LinearSearch(list, "a"))
+#result = True
+===========================================================================================================================
+Binary Search
+Prasyarat dari algoritma binary search adalah data yang diurutkan.
+Algoritma secara iteratif membagi daftar menjadi dua bagian dan melacak
+indeks terendah dan tertinggi hingga menemukan nilai yang dicari
+
+
+def BubbleSort(list):
+    lastElementIndex = len(list)-1
+    for passNo in range(lastElementIndex,0,-1):
+        for index in range(lastElementIndex):
+            if list[index] > list[index + 1]:
+               list[index], list[index + 1] = list[index + 1], list[index]
+    return list
+
+def BinarySearch(list, item):
+    first = 0
+    last = len(list)-1
+    found = False
+
+    while first <= last and not found:
+        midpoint = (first + last)//2
+        if list[midpoint] == item:
+            found = True
+        else:
+            if item < list[midpoint]:
+                last = midpoint - 1
+            else:
+                first = midpoint + 1
+    return found
+
+list = [12,33,11,99,22,55,90]
+sorted_list = BubbleSort(list)
+print(BinarySearch(list, 12))
+#result = True
+print(BinarySearch(list, 91))
+#result = False
+===========================================================================================================================
+Latihan Binary Search
+
+def BubbleSort(list):
+    lastElementIndex = len(list)-1
+    for passNo in range(lastElementIndex,0,-1):
+        for index in range(lastElementIndex):
+            if list[index] > list[index + 1]:
+               list[index], list[index + 1] = list[index + 1], list[index]
+    return list
+
+def BinarySearch(list, item):
+    first = 0
+    last = len(list)-1
+    found = False
+
+    while first <= last and not found:
+        midpoint = (first + last)//2
+        if list[midpoint] == item:
+            found = True
+        else:
+            if item < list[midpoint]:
+                last = midpoint - 1
+            else:
+                first = midpoint + 1
+    return found
+
+list = ["y","u","i","w","o","a","q","u","j","p"]
+sorted_list = BubbleSort(list)
+print(BinarySearch(list, "a"))
+#result = True
+print(BinarySearch(list, "x"))
+#result = False
+===========================================================================================================================
+Interpolation Search
+
+def BubbleSort(list):
+    lastElementIndex = len(list)-1
+    for passNo in range(lastElementIndex,0,-1):
+        for index in range(lastElementIndex):
+            if list[index] > list[index + 1]:
+               list[index], list[index + 1] = list[index + 1], list[index]
+    return list
+
+def IntPolSearch(list, x):
+    idx0 = 0
+    idxn = (len(list)-1)
+    found = False
+
+    while idx0 <= idxn and x >= list[idx0] and x <= list[idxn]:
+        #mencari titik tengah
+        mid = idx0 + int(((float(idxn - idx0)/(list[idxn] - list[idx0])) * (x - list[idx0])))
+        #membandingkan nilai di titik tengah dengan search value
+        if list[mid] == x:
+            found = True
+            return found
+
+        if list[mid] < x:
+            idx0 = mid + 1
+    return found
+
+list = [12,33,11,99,22,55,90]
+sorted_list = BubbleSort(list)
+print(IntPolSearch(list, 12))
+#result = True
+print(IntPolSearch(list, 91))
+#result = False
+===========================================================================================================================
+Latihan Interpolation Search
+
+def BubbleSort(list):
+    lastElementIndex = len(list)-1
+    for passNo in range(lastElementIndex,0,-1):
+        for index in range(lastElementIndex):
+            if list[index] > list[index + 1]:
+               list[index], list[index + 1] = list[index + 1], list[index]
+    return list
+
+def IntPolSearch(list, x):
+    idx0 = 0
+    idxn = (len(list)-1)
+    found = False
+
+    while idx0 <= idxn and x >= list[idx0] and x <= list[idxn]:
+        #mencari titik tengah
+        idx0_val = ord(list[idx0])
+        idxn_val = ord(list[idxn])
+        x_val = ord(x)
+
+        mid = idx0 + ((x_val - idx0_val) * (idxn - idx0)) // (idxn_val - idx0_val)
+        #membandingkan nilai di titik tengah dengan search value
+        if list[mid] == x:
+            found = True
+            return found
+
+        if list[mid] < x:
+            idx0 = mid + 1
+        else:
+            idxn = mid - 1
+    return found
+
+list = ["y","u","i","w","o","a","q","u","j","p"]
+sorted_list = BubbleSort(list)
+print(IntPolSearch(list, "u"))
+#result = True
+print(IntPolSearch(list, "s"))
+#result = False
 
 
 
