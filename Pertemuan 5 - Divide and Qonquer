@@ -1,0 +1,105 @@
+Mencari nilai MAX dan MIN
+
+def divideAndQonquer_Max(arr, ind, len):
+    maximum = -1;
+
+    if (ind >= len - 2):
+        if (arr[ind] > arr[ind + 1]):
+            return arr[ind];
+        else:
+            return arr[ind + 1];
+
+    maximum = divideAndQonquer_Max(arr, ind + 1, len);
+
+    if (arr[ind] > maximum):
+        return arr[ind];
+    else:
+        return maximum;
+
+def divideAndQonquer_Min(arr, ind, len):
+    minimum = 0;
+
+    if (ind >= len - 2):
+        if (arr[ind] < arr[ind + 1]):
+            return arr[ind];
+        else:
+            return arr[ind + 1];
+
+    minimum = divideAndQonquer_Min(arr, ind + 1, len);
+
+    if (arr[ind] < minimum):
+        return arr[ind];
+    else:
+        return minimum;
+
+if __name__ == '__main__':
+    minimum, maximum = 0, -1;
+
+    arr = [4,12,23,9,21,1,35,2,24];
+
+    maximum = divideAndQonquer_Max(arr, 0, 9);
+    minimun = divideAndQonquer_Min(arr, 0, 9);
+
+    print("The minimum number in the array is: ", minimun);
+    #result = The minimum number in the array is: 1
+    print("The maximum number in the array is: ", maximum);
+    #result = The maximum number in the array is: 35
+===========================================================================================================================
+MergeSort in python
+
+def mergeSort(array):
+    if len(array) > 1:
+
+        #r is the point where the array is divided into two subarrays
+        r = len(array)//2
+        L = array[:r]
+        M = array[r:]
+
+        #Sort the two halves
+        mergeSort(L)
+        mergeSort(M)
+
+        i = j = k = 0
+
+        #Until we reach either end of either L or M, pick larger among
+        #Element L and M and place them in the correct position at A[p..r]
+        while i < len(L) and j < len(M):
+            if L[i] < M[j]:
+                array[k] = L[i]
+                i += 1
+            else:
+                array[k] = M[j]
+                j += 1
+            k += 1
+
+        while i < len(L):
+            array[k] = L[i]
+            i += 1
+            k += 1
+
+        while j < len(M):
+            array[k] = M[j]
+            j += 1
+            k += 1
+
+#print the array
+def printList(array):
+    for i in range(len(array)):
+        print(array[i], end=" ")
+    print()
+
+#Driver program
+if __name__ == '__main__':
+    array = [4,12,23,9,21,1,35,2,24]
+
+    mergeSort(array)
+
+    print("Sorted array is: ")
+    printList(array)
+
+#result = 1 2 4 9 12 21 23 24 35
+===========================================================================================================================
+
+
+
+
