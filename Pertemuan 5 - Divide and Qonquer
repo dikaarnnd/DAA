@@ -232,24 +232,24 @@ Misal suatu array isinya {-2, -5, 6, -2, -3, 1, 5, -6}, maka penjumlahan terbesa
 cara kerja
 arr = [-2,-5,6,-2,-3,1,5,-6]		len(arr) = 8
 
-max_so_far  >  max_ending_here?	i
-0			0				0
+max_so_far  >  max_ending_here?			i
+0			0			0
 			0+(-2) = -2			 
-===========================
-0			0				1
+====================================================
+0			0			1
 			0+(-5) = -5		
 			0				
-===========================
-6			0 + 6 = 6			2
-===========================
+====================================================
+6			0 + 6 = 6		2
+====================================================
 6			6 + (-2) = 4		3
-===========================
+====================================================
 6			4 + (-3) = 1		4
-===========================
-6			1 + 1 = 2			5
-===========================
-7			2 + 5 = 7			6
-===========================
+====================================================
+6			1 + 1 = 2		5
+====================================================
+7			2 + 5 = 7		6
+====================================================
 7			7 + (-6) = 1		7
 
 
@@ -305,7 +305,82 @@ Longest Common Prefix
 
 Mencari potongan suku kata (prefix) yang sama dan terpanjang
 
+def longestCommonPrefix(a):
 
+    size = len(a)
+
+    # if size is 0, return empty string
+    if(size == 0):
+        return ""
+
+    if(size == 1):
+        return a[0]
+
+    # sort the array of strings
+    a.sort()
+
+    # find the minimum length from
+    # first and last string
+    end = min(len(a[0]), len(a[size - 1]))
+
+    # find the common prefix between
+    # the first and last string
+    i = 0
+    while(i < end and a[0][i] == a[size - 1][i]):
+        i += 1
+
+    pre = a[0][0: i]
+    return pre
+
+arr = ["geeksforgeeks", "geeks", "geek", "geezer"]
+result = longestCommonPrefix(arr)
+print(result)
+
+arr = ["apple", "ape", "april"]
+result = longestCommonPrefix(arr)
+print(result)
+
+---------------------------------------------------------------------------------------------------------------------------
+Output:
+
+gee
+ap
+===========================================================================================================================
+Median dua array urut sama ukuran dengan divide dan conquer
+
+def medianOfArray(arr1, arr2, n):
+    m1 = -1 # first number
+    m2 = -1 # second number
+    count = 0
+    i = j = 0
+    while count < n + 1:
+        count += 1
+        if i == n:
+            m1 = m2
+            m2 = arr2[0]
+            break
+        if j == n:
+            m1 = m2
+            m2 = arr1[0]
+            break
+        if arr1[i] < arr2[j]:
+            m1 = m2
+            m2 = arr1[i]
+            i += 1
+        else:
+            m1 = m2
+            m2 = arr2[j]
+            j += 1
+    return (m1 + m2)//2
+
+arr1 = [1,12,15,26,38]
+arr2 = [2,13,17,30,45]
+print(medianOfArray(arr1, arr2, len(arr1)))
+
+---------------------------------------------------------------------------------------------------------------------------
+Output:
+
+16
 ===========================================================================================================================
 Median dua array urut berbeda ukuran dengan divide dan conquer
 
@@ -334,9 +409,143 @@ print("Median = ", Solution(arr3))
 ---------------------------------------------------------------------------------------------------------------------------
 Output:
 
-
 Median =  3
 ===========================================================================================================================
+Mencari elemen terbesar di array dan lebih kecil dari angka
+
+def floorSorted(arr, low, high, x):
+    if low > high:
+        return -1
+    if arr[low] > x:
+        return -1
+    if arr[high] <= x:
+        return arr[high]
+
+    mid = (low + high)//2
+
+    if arr[mid] == x:
+        return arr[mid]
+    if mid > 0 and x > arr[mid-1] and arr[mid] > x:
+        return arr[mid - 1]
+    if mid < high and x < arr[mid + 1] and x >= arr[mid]:
+        return arr[mid]
+    if x > arr[mid]:
+        return floorSorted(arr, low + 1, high, x)
+    else:
+        return floorSorted(arr, low, high - 1, x)
+
+arr = [1,2,8,10,12,14,19]
+x = 5
+print(floorSorted(arr, 0, len(arr) - 1, x))
+
+---------------------------------------------------------------------------------------------------------------------------
+Output:
+
+2
+
+Note: 2 adalah elemen terbesar di array, namun lebih kecil dari 5
+===========================================================================================================================
+Mencari nilai terdekat suatu angka dalam suatu array (dengan metode divide dan conquer)
+
+def closestNumber(arr, low, high, x):
+    if low > high:
+        return -1
+    if arr[high] <= x:
+        return arr[high]
+    if arr[low] >= x:
+       return arr[low]
+
+    mid = (low + high)//2
+
+    if arr[mid] == x:
+        return arr[mid]
+
+    abs_mid = abs(arr[mid] - x)
+
+    if mid > 0:
+        abs_left = abs(arr[mid - 1] - x)
+        if abs_left < abs_mid:
+            return closestNumber(arr, low, mid - 1, x)
+    if mid < high:
+        abs_right = abs(arr[mid + 1] - x)
+        if abs_right < abs_mid:
+            return closestNumber(arr, mid + 1, high, x)
+    return arr[mid]
+
+arr = [2,5,6,7,8,8,9]
+x = 1
+print(closestNumber(arr, 0, len(arr) - 1, x))
+---------------------------------------------------------------------------------------------------------------------------
+Output:
+
+2
+---------------------------------------------------------------------------------------------------------------------------
+def find_closest(list, k):
+    list.sort()
+    closest_num = list[0]
+    for num in list:
+        if abs(num - k) < abs(closest_num - k):
+            closest_num = num
+        if num > k:
+            break
+    return closest_num
+
+list = [3.64, 5.2, 9.42, 9.35, 8.5, 8]
+k = 9.1
+print(find_closest(list, k))
+
+list = [2,5,5,7,8,8,9]
+k = 6
+print(find_closest(list, k))
+---------------------------------------------------------------------------------------------------------------------------
+Output:
+
+9.35
+5
+===========================================================================================================================
+Fixed point
+
+Mencari nilai fixed point, yaitu suatu bilangan dalam array yang nilainya sama dengan urutannya dalam array.
+Array dimulai dari 0. Jika tidak ada yang sama, hasil akan bernilai -1.
+
+def fixedPoint(arr, low, high):
+    if low > high:
+        return -1
+    if arr[high] == high:
+        return arr[high]
+    if arr[low] == low:
+        return arr[low]
+
+    mid = (low + high)//2
+
+    if arr[mid] == mid:
+        return arr[mid]
+    if mid > arr[mid]:
+        return fixedPoint(arr, mid + 1, high)
+    else:
+        return fixedPoint(arr, low, high - 1)
+
+arr = [9,1,4,5,2]
+print(fixedPoint(arr, 0, len(arr) - 1))
+
+arr = [9,1,4,2,4,5,2]
+print(fixedPoint(arr, 0, len(arr) - 1))
+
+arr = [9,1,4,3,4,5,2]
+print(fixedPoint(arr, 0, len(arr) - 1))
+
+arr = [9,8,4,5,2]
+print(fixedPoint(arr, 0, len(arr) - 1))
+---------------------------------------------------------------------------------------------------------------------------
+Output:
+
+1 --> karena angka 1 berada di urutan angka index yang sama, yaitu [1]
+4 --> karena angka 4 berada di urutan angka index yang sama, yaitu [4]
+3 --> karena angka 3 berada di urutan angka index yang sama, yaitu [3]
+-1 --> karena angka yang ada pada array tidak ada yang sama di setiap urutan angka index.
+
+
+
 
 
 
