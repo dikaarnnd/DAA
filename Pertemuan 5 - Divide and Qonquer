@@ -542,7 +542,7 @@ Output:
 1 --> karena angka 1 berada di urutan angka index yang sama, yaitu [1]
 4 --> karena angka 4 berada di urutan angka index yang sama, yaitu [4]
 3 --> karena angka 3 berada di urutan angka index yang sama, yaitu [3]
--1 --> karena angka yang ada pada array tidak ada yang sama di setiap urutan angka index.
+-1 --> karena angka yang ada pada array tidak ada yang sama dengan urutan angka index.
 
 
 
