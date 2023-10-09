@@ -275,38 +275,199 @@ def greedy_bi_TSP(cities, start_size = 12, end_size = 6):
     return shortest(greedy_exact_end_TSP(cities, start, end_size)
                     for start in starts)
 
-random.seed('bi-')
+random.seed('bi')
 plot_tour(greedy_bi_TSP, cities100)
-#plot_tour(greedy_bi_TSP, cities1000)
+plot_tour(greedy_bi_TSP, cities1000)
 ---------------------------------------------------------------------------------------------------------------------------
-
+# benchmarking algorithms
+def compare_algorithms(algorithms, maps):
+    "apply each algorithm to each map and plot result"
+    for algorithm in algorithms:
+        t0 = time.time()
+        results = [total_distance(algorithm(m)) for m in maps]
+        t1 = time.time()
+        avg = sum(results) / len(results)
+        label = '{:.0f}; {:.1f}s: {}'.format(avg, t1-t0, algorithm.__name__)
+        plt.plot(sorted(results), label=label)
+    plt.legend(loc=2)
+    plt.show()
+    print('{} x {}-city maps'.format(len(maps), len(maps[0])))
+    
+def Maps(M, N):
+    "return a list of M maps, each consisting of a set of N cities."
+    return [Cities(N) for m in range(M)]
 ---------------------------------------------------------------------------------------------------------------------------
-
+compare_algorithms([greedy_TSP, greedy_exact_end_TSP, all_greedy_TSP], Maps(100, 50))
 ---------------------------------------------------------------------------------------------------------------------------
+def bi_10_6(cities):  return greedy_bi_TSP(cities, 10, 6)
+def bi_20_5(cities):  return greedy_bi_TSP(cities, 20, 5)
+def bi_40_4(cities):  return greedy_bi_TSP(cities, 40, 4)
+def bi_80_2(cities):  return greedy_bi_TSP(cities, 80, 2)
+def bi_160_1(cities):  return greedy_bi_TSP(cities, 160, 1)
 
+algorithms = [bi_10_6, bi_20_5, bi_40_4, bi_80_2, bi_160_1]
 ---------------------------------------------------------------------------------------------------------------------------
-
+compare_algorithms(algorithms, Maps(100, 50))
 ---------------------------------------------------------------------------------------------------------------------------
-
+compare_algorithms(algorithms, Maps(50, 100))
 ---------------------------------------------------------------------------------------------------------------------------
+compare_algorithms(algorithms, Maps(25, 100))
+===========================================================================================================================
+===========================================================================================================================
+Penerapan Algoritma Greedy dengan Huffman Coding
 
+string = 'BCAADDDCCACACAC'
+
+# creating tree nodes
+class NodeTree(object):
+    def __init__(self, left=None, right=None):
+        self.left = left
+        self.right = right
+
+    def children(self):
+        return (self.left, self.right)
+
+    def nodes(self):
+        return (self.left, self.right)
+
+    def __str__(self):
+        return '%s_%s' % (self.left, self.right)
+    
+    # main function implementing huffman coding
+def huffman_code_tree(node, left=True, binString=''):
+    if type(node) is str:
+        return {node: binString}
+    (l, r) = node.children()
+    d = dict()
+    d.update(huffman_code_tree(l, True, binString + '0'))
+    d.update(huffman_code_tree(r, False, binString + '1'))
+    return d
+
+    # calculating frequency
+    freq = {}
+    for c in string:
+        if c in freq:
+            freq[c] += 1
+        else:
+            freq[c] = 1
+
+    freq = sorted(freq.items(), key=lambda x: x[1], reverse=True)
+
+    nodes = freq
+
+    while len(nodes) > 1:
+        (key1, c1) = nodes[-1]
+        (key2, c2) = nodes[-2]
+        nodes = nodes[:-2]
+        node = NodeTree(key1, key2)
+        nodes.append((node, c1 + c2))
+
+        nodes = sorted(nodes, key=lambda x: x[1], reverse=True)
+
+    huffmanCode = huffman_code_tree(nodes[0][0])
+
+print(' Char | Huffman code ')
+print('----------------------')
+for (char, frequency) in freq:
+    print(' %-4r |%12s' % (char, huffmanCode[char]))
 ---------------------------------------------------------------------------------------------------------------------------
+output:
 
+ Char | Huffman code 
+----------------------
+ 'C'  |           0
+ 'A'  |          11
+ 'D'  |         101
+ 'B'  |         100
+===========================================================================================================================
+===========================================================================================================================
+Huffman Coding Algorithm
+
+# a huffman tree node
+import heapq
+
+class node:
+  def __init__(self, freq, symbol, left=None, right=None):
+    # frequency of symbol
+    self.freq = freq
+
+    # symbol name (character)
+    self.symbol = symbol
+
+    # node left of current node
+    self.left = left
+
+    # node right of currnet node
+    self.right = right
+
+    # tree direction (0/1)
+    self.huff = ''
+  
+  def __lt__(self, nxt):
+    return self.freq < nxt.freq
 ---------------------------------------------------------------------------------------------------------------------------
+# utility fucntion to print huffman
+# codes for all symbols on the newly
+# created huffman tree
+def printNodes(node, val=''):
+  # huffman code for current node
+  newVal = val + str(node.huff)
 
+  # if node is not an edge node
+  # then traverse inside it
+  if(node.left):
+    printNodes(node.left, newVal)
+  if(node.right):
+    printNodes(node.right, newVal)
+
+    # if node is edge node then
+    # display its huffman code
+  if(not node.left and not node.right):
+    print(f"{node.symbol} -> {newVal}")
 ---------------------------------------------------------------------------------------------------------------------------
+# characters for huffman tree
+chars = ['a', 'b', 'c', 'd', 'e', 'f']
 
+# frequency of characters
+freq = [5, 9, 12, 13, 16, 45]
+
+# list containing unused nodes
+nodes = []
+
+# converting characters and frequencies
+# into huffman tree nodes
+for x in range(len(chars)):
+  heapq.heappush(nodes, node(freq[x], chars[x]))
 ---------------------------------------------------------------------------------------------------------------------------
+while len(nodes) > 1:
+  # sort all the nodes in ascending order
+  # based on their frequency
+  left = heapq.heappop(nodes)
+  right = heapq.heappop(nodes)
 
+  # assign directional value t these nodes
+  left.huff = 0
+  right.huff = 1
+
+  # combine the 2 smallest nodes to create
+  # new node as their parent
+  newNode = node(left.freq + right.freq, left.symbol + right.symbol, left, right)
+
+  heapq.heappush(nodes, newNode)
+
+# huffman tree is ready!
+printNodes(nodes[0])
 ---------------------------------------------------------------------------------------------------------------------------
+output:
 
----------------------------------------------------------------------------------------------------------------------------
-
-
-
-
-
-
+f -> 0
+c -> 100
+d -> 101
+a -> 1100
+b -> 1101
+e -> 111
+===========================================================================================================================
+===========================================================================================================================
 
 
 
