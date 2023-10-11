@@ -1,0 +1,252 @@
+Perkalian Matrix
+
+A = [
+        [7, 3],
+        [2, 1]
+]
+B = [
+        [5, 4],
+        [6, 3]
+]
+
+hasil = []
+
+for x in range(0, len(A)):
+    row = []
+    for y in range(0, len(A[0])):
+        total = 0
+        for z in range(0, len(A)):
+            total = total + (A[x][z] * B[z][y])
+        row.append(total)
+    hasil.append(row)
+
+for x in range(0, len(hasil)):
+    for y in range(0, len(hasil[0])):
+        print(hasil[x][y], end=' ')
+    print()
+----------------------------------------------------------------------------------------------------------------------------
+output:
+
+53 37 
+16 11 
+============================================================================================================================
+Faktorial
+
+def faktorial(n):
+    if(n == 1):
+        return n
+    return faktorial(n - 1)*n
+
+n = int(input("Masukkan nilai n: ")) #input nilai
+print(f"Hasil dari {n}!", faktorial(n)) #output nilai
+============================================================================================================================
+Mencari elemen terbesar
+
+def nilai_maksimal(deret_bilangan):
+    nilai_terbesar = deret_bilangan[0]
+
+    for nilai in deret_bilangan:
+        if nilai > nilai_terbesar:
+            nilai_terbesar = nilai
+
+    return nilai_terbesar
+
+a = [3, 20, 100, -35, 50]
+
+print(a)
+print('Nilai terbesar: ', nilai_maksimal(a))
+============================================================================================================================
+Sequential Search
+
+def sequentialSearch(alist, item):
+    pos = 0
+    found = False
+
+    while pos < len(alist) and not found:
+        if alist[pos] == item:
+            found = True
+        else:
+            pos = pos + 1
+    return found
+
+testlist = [1, 2, 32, 8, 17, 19, 42, 13, 0]
+print(sequentialSearch(testlist, 3))
+print(sequentialSearch(testlist, 2))
+----------------------------------------------------------------------------------------------------------------------------
+output:
+
+False
+True
+============================================================================================================================
+Bubble Sort
+
+def bubbleSort(alist):
+    for passnum in range(len(alist)-1,0,-1):
+        for i in range(passnum):
+            if alist[i] > alist[i+1]:
+                temp = alist[i]
+                alist[i] = alist[i+1]
+                alist[i+1] = temp
+
+alist = [54, 26, 93, 17, 77, 31, 44, 55, 20]
+bubbleSort(alist)
+print(alist)
+----------------------------------------------------------------------------------------------------------------------------
+output:
+
+[17, 20, 26, 31, 44, 54, 55, 77, 93]
+============================================================================================================================
+Uji Keprimaan
+
+x = int(input('Input satu angka bulat: '))
+
+angka_prima = True
+if((x == 0) or (x == 1)):
+    angka_prima = False
+else:
+    for i in range(2, (x//2+1)):
+        if((x % i) == 0):
+            angka_prima = False
+            break
+
+if(angka_prima):
+    print(x, 'adalah angka prima')
+else:
+    print(x, 'bukan angka prima')
+============================================================================================================================
+Menghitung Polynomial
+
+def polynomial_py(a, x):
+    result = 0
+    # for every n in 0..len(a)-1
+    for n, a_n in enumerate(a):
+        # compute x^n
+        x_power_n = 1
+        for i in range(n):
+            x_power_n *= x
+        # add a_n * x^n to the final result
+        result += a_n * x_power_n
+    return result
+
+a = [1,2,0,3] # coeficient
+x = 1.5
+print(polynomial_py(a, x))
+----------------------------------------------------------------------------------------------------------------------------
+output:
+
+14.125
+============================================================================================================================
+Matching substring in string
+
+# get matching substring in string
+# initializing string
+test_str = "GFG is good website"
+
+# initializing potential substrings
+test_list = ["GFG", "site", "CS", "Geeks", "Tutorial"]
+
+# printing original string
+print("The original string is : "+ test_str)
+
+# printing potential strings list
+print("The original list is : "+ str(test_list))
+
+# using list comprehension
+# get matching substrings in string
+res = [sub for sub in test_list if sub in test_str]
+
+# printing result
+print("The list of found substring : "+ str(res))
+----------------------------------------------------------------------------------------------------------------------------
+output:
+
+The original string is : GFG is good website
+The original list is : ['GFG', 'site', 'CS', 'Geeks', 'Tutorial']
+The list of found substring : ['GFG', 'site']
+============================================================================================================================
+Cari pasangan titik jarak dekat
+
+from math import sqrt
+from random import randint
+titik = []
+n = int(input('Masukkan jumlah titik yang ingin Anda cari jaraknya: '))
+for i in range(0,n):
+  titik.append([randint(0, 100), randint(0, 100)])
+print('Titik:\n', titik)
+
+def hitungjarak(lis):
+  lisjarak = []
+  for i in range(0, len(lis)-1):
+    for j in range(i+1, len(lis)):
+      jarak = sqrt((lis[i][0] - lis[j][0])**2 + (lis[i][1] - lis[j][1])**2)
+      lisjarak.append(jarak)
+      print('Titik: ', lis[i], 'Titik: ', lis[j],': ', jarak)
+  return min(lisjarak)
+print('Jarak terdekat:\n', hitungjarak(titik))
+============================================================================================================================
+Algoritma Brute Force - Linear Search
+
+# find maximum value in linear search
+def find_maximum(lst):
+    max = None
+    for el in lst:
+        if max == None or el > max:
+            max = el
+    return max
+
+test_scores = [88, 93, 75, 100, 80, 67, 71, 92, 90, 83]
+print(find_maximum(test_scores)) # returns 100
+----------------------------------------------------------------------------------------------------------------------------
+output:
+
+100
+============================================================================================================================
+Algoritma Brute Force - Bubble Sort
+
+def bubbleSort(alist):
+    for passnum in range(len(alist)-1,0,-1):
+        for i in range(passnum):
+            if alist[i] > alist[i+1]:
+                temp = alist[i]
+                alist[i] = alist[i+1]
+                alist[i+1] = temp
+
+alist = [54, 26, 93, 17, 77, 31, 44, 55, 20]
+bubbleSort(alist)
+print(alist)
+----------------------------------------------------------------------------------------------------------------------------
+output:
+
+[17, 20, 26, 31, 44, 54, 55, 77, 93]
+============================================================================================================================
+Algoritma Brute Force - Selection Sort
+============================================================================================================================
+Algoritma Brute Force - Sequential Search
+
+def Sequential_Search(dlist, item):
+    pos = 0
+    found = False
+
+    while pos < len(dlist) and not found:
+        if dlist[pos] == item:
+            found = True
+        else:
+            pos = pos + 1
+    return found, pos
+
+print(Sequential_Search([11, 23, 58, 31, 56, 77, 43, 12, 65, 19], 31))
+----------------------------------------------------------------------------------------------------------------------------
+output:
+
+(True, 3)
+============================================================================================================================
+
+============================================================================================================================
+
+
+
+
+
+
+
+
