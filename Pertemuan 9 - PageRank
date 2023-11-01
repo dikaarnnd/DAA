@@ -40,3 +40,198 @@ PR(Page 2) = 0.302
 PR(Page 3) = 0.378
 PR(Page 4) = 0.198
 ============================================================================================================================
+Mmebuat graph dari adjacency sebelumnya
+
+import numpy as np
+import networkx as nx
+import matplotlib.pyplot as plt
+
+adja_matrix = np.array ([[ 0,  1,  0,  0,  0,  0],
+                         [ 0,  0,  1,  0,  0,  0],
+                         [ 0,  0,  0,  1,  0,  0],
+                         [ 0,  0,  0,  0,  1,  0],
+                         [ 0,  0,  0,  0,  0,  1],
+                         [ 0,  0,  0,  0,  0,  0]])
+
+G = nx.DiGraph()
+
+num_pages = len(adja_matrix)
+G.add_nodes_from(range(num_pages))
+
+for i in range (num_pages):
+     for j in range (num_pages):
+        if adja_matrix[i,j] == 1:
+            G.add_edge(i,j)
+
+pos = nx.spring_layout(G)
+labels = {i: f"Page {i+1}" for i in range(num_pages)}
+nx.draw(G, pos, with_labels=True, labels=labels, node_size=1000,node_color='grey', font_size=10,font_color='black',font_weight='bold',arrowsize=20)
+plt.title("PageRank Example Graph")
+plt.show()
+============================================================================================================================
+import numpy as np
+import networkx as nx
+import matplotlib.pyplot as plt
+
+adja_matrix = np.array ([[ 0,  1,  0,  0,  0,  0],
+                         [ 0,  0,  1,  0,  0,  0],
+                         [ 0,  0,  0,  1,  0,  0],
+                         [ 0,  0,  0,  0,  1,  0],
+                         [ 0,  0,  0,  0,  0,  1],
+                         [ 0,  0,  0,  0,  0,  0]])
+
+G = nx.DiGraph()
+
+num_pages = len(adja_matrix)
+G.add_nodes_from(range(num_pages))
+
+for i in range (num_pages):
+     for j in range (num_pages):
+        if adja_matrix[i,j] == 1:
+            G.add_edge(i,j)
+
+pos = nx.spring_layout(G)
+labels = {i: f"Page {i+1}" for i in range(num_pages)}
+nx.draw(G, pos, with_labels=True, labels=labels, node_size=1000,node_color='grey', font_size=10,font_color='black',font_weight='bold',arrowsize=20)
+plt.title("PageRank Example Graph")
+plt.show()
+============================================================================================================================
+Menggunakan Prosedur
+
+import numpy as np
+import networkx as nx
+import matplotlib.pyplot as plt
+def hitungPageRank(array):
+    # set the damping factor
+    damping_factor = 0.85
+
+    # initialize the pagerank values
+    num_pages = len(array)
+    page_rank = np.ones(num_pages) / num_pages
+
+    # number of iterations
+    num_iterations = 100
+
+    for i in range(num_iterations):
+        new_page_rank = np.zeros(num_pages)
+        for j in range(num_pages):
+            # calculate the pagerank contribution from each linking page
+            linking_pages = [k for k in range(num_pages) if array[k, j] == 1]
+            for linking_page in linking_pages:
+                new_page_rank[j] += page_rank[linking_page] / sum(array[linking_page, :])
+            new_page_rank[j] = damping_factor * new_page_rank[j] + (1 - damping_factor) / num_pages
+        page_rank = new_page_rank
+
+    # print the final pagerank values
+    for page, rank in enumerate(page_rank):
+        print(f"PR(Page {page + 1}) = {rank:.3f}")
+
+def gambarGrafik(array):
+    G = nx.DiGraph()
+
+    num_pages = len(array)
+    G.add_nodes_from(range(num_pages))
+
+    for i in range(num_pages):
+        for j in range(num_pages):
+            if array[i, j] == 1:
+                G.add_edge(i, j)
+
+    pos = nx.spring_layout(G)
+    labels = {i: f"Page {i + 1}" for i in range(num_pages)}
+    nx.draw(G, pos, with_labels=True, labels=labels, node_size=1000, node_color='grey', font_size=10,
+            font_color='black', font_weight='bold', arrowsize=20)
+    plt.title("PageRank Example Graph")
+    plt.show()
+
+
+array = np.array ([[ 0,  1,  0,  0,  0,  0],
+                    [ 0,  0,  1,  0,  0,  0],
+                    [ 0,  0,  0,  1,  0,  0],
+                    [ 0,  0,  0,  0,  1,  0],
+                    [ 0,  0,  0,  0,  0,  1],
+                    [ 0,  0,  0,  0,  0,  0]])
+
+#array2 = np.array ([[0, 1, 0, 0],
+#                    [0, 0, 1, 0],
+#                    [0, 1, 0, 1],
+#                    [1, 0, 1, 0]])
+
+print(gambarGrafik(array))
+============================================================================================================================
+import numpy as np
+import networkx as nx
+import matplotlib.pyplot as plt
+
+def hitungPageRank(array):
+    #define the adjacency matrix
+    adjacency_matrix = np.array(array)
+
+    # set the damping factor
+    damping_factor = 0.85
+
+    # initialize the pagerank values
+    num_pages = len(array)
+    page_rank = np.ones(num_pages) / num_pages
+
+    # number of iterations
+    num_iterations = 100
+
+    for i in range(num_iterations):
+        new_page_rank = np.zeros(num_pages)
+        for j in range(num_pages):
+            # calculate the pagerank contribution from each linking page
+            linking_pages = [k for k in range(num_pages) if array[k, j] == 1]
+            for linking_page in linking_pages:
+                new_page_rank[j] += page_rank[linking_page] / sum(array[linking_page, :])
+            new_page_rank[j] = damping_factor * new_page_rank[j] + (1 - damping_factor) / num_pages
+        page_rank = new_page_rank
+
+    # print the final pagerank values
+    for page, rank in enumerate(page_rank):
+        print(f"PR(Page {page + 1}) = {rank:.3f}")
+
+def implementasiAlgoPageRank(connection, first, last):
+    myWeb = nx.DiGraph()
+    myPages = range(first, last)
+
+    connections = connection
+    myWeb.add_nodes_from(myPages)
+    myWeb.add_edges_from(connections)
+
+    pos = nx.shell_layout(myWeb)
+    nx.draw(myWeb, pos, arrows=True, with_labels=True)
+    plt.show()
+
+def gambarGrafik(array):
+    #define the adjacency matrix
+    adjacency_matrix = np.array(array)
+
+    #create a directed graph
+    G = nx.DiGraph()
+
+    #add nodes
+    num_pages = len(adjacency_matrix)
+    G.add_nodes_from(range(num_pages))
+
+    #add edges based on the adjacency matrix
+    for i in range(num_pages):
+        for j in range(num_pages):
+            if adjacency_matrix[i, j] == 1:
+                G.add_edge(i, j)
+
+    #draw the graph
+    pos = nx.spring_layout(G)
+    labels = {i: f"Page {i + 1}" for i in range(num_pages)}
+    nx.draw(G, pos, with_labels=True, labels=labels, node_size=1000, node_color='grey', font_size=10,
+            font_color='black', font_weight='bold', arrowsize=20)
+    plt.title("PageRank Example Graph")
+    plt.show()
+
+
+#print(implementasiAlgoPageRank([(1,2), (2,3), (3,4), (4,5), (5,6)], 1, 6))
+print(hitungPageRank(([[0,1,0,0], [1,0,1,0], [0,1,0,1], [0,0,1,0]])))
+
+
+
+
