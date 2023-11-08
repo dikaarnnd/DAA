@@ -1,0 +1,186 @@
+import pulp
+
+model = pulp .LpProblem("ProfitMaximisingProblem", pulp.LpMaximize)
+A = pulp.LpVariable('A', lowBound = 0, cat = 'Integer')
+B = pulp.LpVariable('B', lowBound = 0, cat = 'Integer')
+
+# objective function
+model += 4200 * A + 2800 * B, "Profit"
+# constraints
+model += 3 * A + 2 * B <= 20
+model += 4 * A + 3 * B <= 30
+model += 4 * A + 3 * B <= 44
+
+# solve our problem
+model.solve()
+print(pulp.LpStatus[model.status])
+
+# print our decision variable values
+print(A.varValue)
+print(B.varValue)
+print("")
+# print our objective function value
+print(pulp.value(model.objective))
+----------------------------------------------------------------------------------------------------------------------------
+output:
+
+Optimal
+6.0
+1.0
+
+28000.0
+============================================================================================================================
+import pulp
+
+# membuat objek masalah optimasi
+model = pulp.LpProblem(name = "Pemecahan_persamaan", sense = pulp.LpMinimize)
+
+# membuat variabel x dan y
+x = pulp.LpVariable(name = "x")
+y = pulp.LpVariable(name = "y")
+
+# menambahkan batasan
+# nomor 1
+#model += 4 * x + 3 * y == 34
+# nomor 2
+model += 5 * x + 1 * y == 37
+
+# penyelesaian masalah
+model.solve()
+
+# menampilkan hasil
+print("Status: ", model.status)
+print("Nilai x = ", x.varValue)
+print("Nilai y = ", y.varValue)
+============================================================================================================================
+import pulp
+
+model = pulp .LpProblem("ProfitMaximisingProblem", pulp.LpMaximize)
+P = pulp.LpVariable('P', lowBound = 0, cat = 'Integer')
+B = pulp.LpVariable('B', lowBound = 0, cat = 'Integer')
+
+# objective function
+model += 2 * P + 6 * B, "Profit"
+
+# constraints
+model += 3 * P + 4 * B == 11000
+model += 1 * P + 7 * B == 15000
+
+# solve our problem
+model.solve()
+print(pulp.LpStatus[model.status])
+
+# print our decision variable values
+print(P.varValue)
+print(B.varValue)
+print("")
+
+# print our objective function value
+print(pulp.value(model.objective))
+----------------------------------------------------------------------------------------------------------------------------
+output:
+
+Optimal
+1000.0
+2000.0
+
+14000.0
+============================================================================================================================
+import pulp
+
+# membuat objek masalah optimasi
+model = pulp.LpProblem(name = "Pemecahan_persamaan", sense = pulp.LpMaximize)
+
+# membuat variabel x dan y
+p = pulp.LpVariable(name = "p")
+l = pulp.LpVariable(name = "l")
+
+# menambahkan batasan
+model += 2 * p + 2 * l == 44
+model += p - l == 6
+
+# penyelesaian masalah
+model.solve()
+
+# menampilkan hasil
+print("Status: ", model.status)
+print("Nilai p = ", p.varValue)
+print("Nilai l = ", l.varValue)
+============================================================================================================================
+import numpy as np
+from scipy.optimize import linprog
+
+# max z = 5x1 + 7x2
+# 1x1 + 0x2 <=16, 2x1 + 3x2 <=19, 1x1 + 1x2 <= 8,
+# x1, x2 >= 0
+# set the inequality constraints must be in the form of <=
+A = np.array([[1,0], [2,3], [1,1], [-1,0], [0,-1]])
+
+# set the inequality constraints vector
+b = np.array([16, 19, 8, 0, 0])
+
+# set the coefficients of the linear objective function vector
+# note: when maximizing, change the signs of the c vector coefficient
+c = np.array([-5, -7])
+
+# solve linear programming problem
+res = linprog(c, A_ub = A, b_ub = b)
+
+# print result
+print('Optimal value:', round(res.fun*-1, ndigits = 2),
+      '\nx values:', res.x,
+      '\nNumber of iterations performed:', res.nit,
+      '\nStatus:', res.message)
+----------------------------------------------------------------------------------------------------------------------------
+output:
+
+Optimal value: 46.0 
+x values: [5. 3.] 
+Number of iterations performed: 3 
+Status: Optimization terminated successfully.
+============================================================================================================================
+from scipy.optimize import linprog
+
+# 2. tentukan koefisien fungsi tujuan dan matriks batasan:
+# koefisien fungsi tujuan (Z = 5x1 + 7x2)
+c = [-5, -7] # karena kita ingin "memaksimalkan" -5x1 - 7x2, maka perlu diubah menjadi "-5" dan "-7"
+
+# koefisien matriks batasan
+A = [
+    [1, 0], # 1x1 + 0x2 <= 16
+    [2, 3], # 2x1 + 3x2 <= 19
+    [1, 1]  # 1x1 + 1x2 <= 8
+]
+
+# batasan kanan (rhs) dari masing-masing batasan
+b = [16, 19, 8]
+
+# 3. tentukan batasan variabel x1 dan x2 sebagai variabel non-negatif:
+x1_bounds = (0, None)   # x1 >= 0
+x2_bounds = (0, None)   # x2 >= 0
+
+# 4. gunakan linprog untuk menyelesaikan masalah pemograman linier:
+result = linprog(c, A_ub=A, b_ub=b, bounds = [x1_bounds, x2_bounds], method = "highs")
+
+# 5. tampilkan hasilnya:
+# hasil optimasi
+print("Optimasi Solution:")
+print("x1 = ", result.x[0])
+print("x2 = ", result.x[1])
+print("Max Z = ", -result.fun)   # karena tujuannya adalah memaksimalkan -Z
+----------------------------------------------------------------------------------------------------------------------------
+output:
+Optimasi Solution:
+x1 =  5.0
+x2 =  3.0
+Max Z =  46.0
+============================================================================================================================
+
+
+
+
+
+
+
+
+
