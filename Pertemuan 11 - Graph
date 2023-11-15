@@ -1,4 +1,5 @@
 Membuat graph dengan elemen V = {a,b,c,d,e}, E = {ab,ac,bd,cd,de}
+
 # a-----b
 # |     |
 # |     |
@@ -19,6 +20,7 @@ Output:
 {'a': ['b', 'c'], 'b': ['a', 'd'], 'c': ['a', 'd'], 'd': ['e'], 'e': ['d']}
 ===========================================================================================================================
 Menampilkan simpul pada graph
+
 class Graph:
     def __init__(self, gdict=None):
         if gdict is None:
@@ -47,6 +49,7 @@ Output:
 ['a', 'b', 'c', 'd', 'e']
 ===========================================================================================================================
 Menampilkan sudut pada graph
+
 class graph:
     def __init__(self, gdict=None):
         if gdict is None:
@@ -82,6 +85,7 @@ Output:
 [{'b', 'a'}, {'c', 'a'}, {'d', 'b'}, {'d', 'c'}, {'d', 'e'}]
 ===========================================================================================================================
 Menambah vertex/simpul
+
 class graph:
     def __init__(self, gdict=None):
         if gdict is None:
@@ -112,5 +116,61 @@ print(g.getVertices())
 Output:
 ['a', 'b', 'c', 'd', 'e', 'f']
 ===========================================================================================================================
+Menambahkan edge pada graph
 
+class graph:
+    def __init__(self, gdict=None):
+        if gdict is None:
+            gdict = {}
+        self.gdict = gdict
+
+    def getVertices(self):
+        return list(self.gdict.keys())
+
+    # Add the vertex as a key
+    def addVertex(self, vrtx):
+        if vrtx not in self.gdict:
+            self.gdict[vrtx] = []
+
+    def edges(self):
+        return self.findedges()
+
+# Add the new edge
+    def AddEdge(self, edge):
+        edge = set(edge)
+        (vrtx1, vrtx2) = tuple(edge)
+        if vrtx1 in self.gdict:
+            self.gdict[vrtx1].append(vrtx2)
+        else:
+            self.gdict[vrtx1] = [vrtx2]
+
+# List the edge names
+    def findedges(self):
+        edgename = []
+        for vrtx in self.gdict:
+            for nxtvrtx in self.gdict[vrtx]:
+                if {nxtvrtx, vrtx} not in edgename:
+                    edgename.append({vrtx, nxtvrtx})
+        return edgename
+
+# Create the dictionary with graph elements
+graph_elements = {"a" : ["b", "c"],
+                  "b" : ["a", "d"],
+                  "c" : ["a", "d"],
+                  "d" : ["e"],
+                  "e" : ["d"]
+                  }
+
+g = graph(graph_elements)
+g.addVertex("f")
+print(g.getVertices())
+
+g.AddEdge({'b', 'f'})
+g.AddEdge({'e', 'f'})
+print(g.edges())
+---------------------------------------------------------------------------------------------------------------------------
+Output:
+['a', 'b', 'c', 'd', 'e', 'f']
+[{'b', 'a'}, {'c', 'a'}, {'d', 'b'}, {'d', 'c'}, {'d', 'e'}, {'e', 'f'}, {'b', 'f'}]
+===========================================================================================================================
 
