@@ -1,1 +1,36 @@
+#Latihan 1
+import networkx as nx
+import matplotlib.pyplot as plt
+# Buat node
+nodes = ['Mike', 'Bob', 'Emma', 'Liz', 'Allen', 'Lisa', 'Jill', 'John', 'Shane', 'Leah']
+
+# Buat edge
+edges = [(nodes[6], nodes[0]),(nodes[0], nodes[1]),
+         (nodes[6], nodes[1]), (nodes[1], nodes[7]),
+         (nodes[6], nodes[7]), (nodes[7], nodes[9]),
+         (nodes[6], nodes[9]), (nodes[9], nodes[8]),
+         (nodes[6], nodes[8]),(nodes[8],nodes[2]),
+         (nodes[6],nodes[2]),(nodes[2],nodes[0]),
+         (nodes[2],nodes[1]),(nodes[7],nodes[8]),
+         (nodes[2],nodes[3]),(nodes[3],nodes[8]),
+         (nodes[4],nodes[5]),(nodes[4],nodes[3])]
+
+# Buat network
+G = nx.Graph()
+G.add_nodes_from(nodes)
+G.add_edges_from(edges)
+nx.draw(G, with_labels=True, node_color='y', node_size=800)
+===========================================================================================================================
+#Latihan 2
+import networkx as nx
+import matplotlib.pyplot as plt
+
+vertices = range(1,15)
+edges = [(2,11),(2,15),(2,12),(2,6),(6,9),(6,7),(6,14),(6,8),
+         (2,1),(1,4),(1,10),(2,3),(3,13),(3,5)]
+
+G = nx.Graph()
+G.add_nodes_from(vertices)
+G.add_edges_from(edges)
+nx.draw(G, with_labels=True, node_color='y', node_size=800)
 
