@@ -113,5 +113,116 @@ output:
 ============================================================================================================================
 Algoritma Depth First Search
 
+# O Amin ------------------------
+# |             |               |
+# O Wasim       O Nick          O Mike
+# |
+# O Imran
+# |
+# O Faras
 
+def dfs(visited,graph,node):
+    if node not in visited:
+        print(node)
+        visited.add(node)
+        for neighbour in graph[node]:
+            dfs(visited,graph,neighbour)
 
+graph = {'Amin' : ['Wasim', 'Nick', 'Mike'],
+         'Wasim': ['Imran', 'Amin'],
+         'Imran': ['Wasim', 'Faras'],
+         'Faras': ['Imran'],
+         'Mike': ['Amin'],
+         'Nick': ['Amin']}
+
+visited = set()
+print(dfs(visited,graph,'Amin'))
+----------------------------------------------------------------------------------------------------------------------------
+output:
+Amin
+Wasim
+Imran
+Faras
+Nick
+Mike
+----------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------
+def dfs(visited,graph,node):
+    if node not in visited:
+        print(node)
+        visited.add(node)
+        for neighbour in graph[node]:
+            dfs(visited,graph,neighbour)
+
+graph = {'Rektor': ['Warek1', 'Warek2'],
+          'Warek1': ['Rektor'],
+          'Warek2': ['Kaprodi1', 'Kaprodi2', 'Kaprodi3', 'Rektor'],
+          'Kaprodi1': ['DosenA', 'DosenB', 'DosenC', 'Warek2'],
+          'Kaprodi2': ['DosenD', 'DosenE', 'Warek2'],
+          'Kaprodi3': ['DosenF', 'DosenG', 'Warek2'],
+          'DosenG': ['Kaprodi3'],
+          'DosenF': ['Kaprodi3'],
+          'DosenD': ['Kaprodi2'],
+          'DosenE': ['Kaprodi2'],
+          'DosenC': ['Kaprodi1'],
+          'DosenB': ['Kaprodi1'],
+          'DosenA': ['Kaprodi1']}
+
+visited = set()
+print(dfs(visited,graph,'Rektor'))
+----------------------------------------------------------------------------------------------------------------------------
+output:
+Rektor
+Warek1
+Warek2
+Kaprodi1
+DosenA
+DosenB
+DosenC
+Kaprodi2
+DosenD
+DosenE
+Kaprodi3
+DosenF
+DosenG
+----------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------
+def dfs(visited,graph,node):
+    if node not in visited:
+        print(node)
+        visited.add(node)
+        for neighbour in graph[node]:
+            dfs(visited,graph,neighbour)
+
+graph = { '10': ['9', '7', '11'],
+          '9': ['0', '8', '10'],
+          '7': ['11', '3', '6', '10'],
+          '11': ['7', '10'],
+          '0': ['1', '9'],
+          '8': ['1', '9'],
+          '1': ['0', '8'],
+          #'12': ['8', '2'],
+          '3': ['7', '2', '4'],
+          '6': ['7', '5'],
+          '2': ['3'],
+          '4': ['3'],
+          '5': ['6']}
+
+visited = set()
+print(dfs(visited,graph,'0'))
+----------------------------------------------------------------------------------------------------------------------------
+output:
+0
+1
+8
+9
+10
+7
+11
+3
+2
+4
+6
+5
+============================================================================================================================
+============================================================================================================================
