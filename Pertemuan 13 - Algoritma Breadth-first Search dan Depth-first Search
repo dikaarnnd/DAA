@@ -1,0 +1,117 @@
+Algoritma Breadth First Search
+
+# O Amin ------------------------
+# |             |               |
+# O Wasim       O Nick          O Mike
+# |
+# O Imran
+# |
+# O Faras
+
+def bfs(graph,start):
+    visited = []
+    queue = []
+    queue = [start]
+    while queue:
+        node = queue.pop(0)
+        if node not in visited:
+            visited.append(node)
+            neighbours = graph[node]
+            for neighbour in neighbours:
+                queue.append(neighbour)
+    return visited
+
+graph = {'Amin' : ['Wasim', 'Nick', 'Mike'],
+         'Wasim': ['Imran', 'Amin'],
+         'Imran': ['Wasim', 'Faras'],
+         'Faras': ['Imran'],
+         'Mike': ['Amin'],
+         'Nick': ['Amin']}
+
+print(bfs(graph,'Amin'))
+----------------------------------------------------------------------------------------------------------------------------
+output:
+['Amin', 'Wasim', 'Nick', 'Mike', 'Imran', 'Faras']
+----------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------
+print(bfs(graph,'Wasim'))
+----------------------------------------------------------------------------------------------------------------------------
+output:
+['Wasim', 'Imran', 'Amin', 'Faras', 'Nick', 'Mike']
+----------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------
+print(bfs(graph,'Faras'))
+----------------------------------------------------------------------------------------------------------------------------
+output:
+['Faras', 'Imran', 'Wasim', 'Amin', 'Nick', 'Mike']
+============================================================================================================================
+def bfs(graph,start):
+    visited = []
+    queue = []
+    queue = [start]
+    while queue:
+        node = queue.pop(0)
+        if node not in visited:
+            visited.append(node)
+            neighbours = graph[node]
+            for neighbour in neighbours:
+                queue.append(neighbour)
+    return visited
+
+graph = {'Rektor': ['Warek1', 'Warek2'],
+          'Warek1': ['Rektor'],
+          'Warek2': ['Kaprodi1', 'Kaprodi2', 'Kaprodi3', 'Rektor'],
+          'Kaprodi1': ['Warek2', 'DosenA', 'DosenB', 'DosenC'],
+          'Kaprodi2': ['Warek2', 'DosenD', 'DosenE'],
+          'Kaprodi3': ['Warek2', 'DosenF', 'DosenG'],
+          'DosenG': ['Kaprodi3'],
+          'DosenF': ['Kaprodi3'],
+          'DosenD': ['Kaprodi2'],
+          'DosenE': ['Kaprodi2'],
+          'DosenC': ['Kaprodi1'],
+          'DosenB': ['Kaprodi1'],
+          'DosenA': ['Kaprodi1']}
+
+print(bfs(graph,'Rektor'))
+----------------------------------------------------------------------------------------------------------------------------
+output:
+['Rektor', 'Warek1', 'Warek2', 'Kaprodi1', 'Kaprodi2', 'Kaprodi3', 'DosenA', 'DosenB', 'DosenC', 'DosenD', 'DosenE', 'DosenF', 'DosenG']
+----------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------
+def bfs(graph,start):
+    visited = []
+    queue = []
+    queue = [start]
+    while queue:
+        node = queue.pop(0)
+        if node not in visited:
+            visited.append(node)
+            neighbours = graph[node]
+            for neighbour in neighbours:
+                queue.append(neighbour)
+    return visited
+
+graph = { '0': ['9', '7', '11'],
+          '9': ['0', '10', '8'],
+          '7': ['0', '11', '3', '6'],
+          '11': ['0', '7'],
+          '10': ['9', '1'],
+          '8': ['9', '1', '12'],
+          '1': ['10', '8'],
+          '12': ['8', '2'],
+          '3': ['7', '2', '4'],
+          '6': ['7', '5'],
+          '2': ['12', '3'],
+          '4': ['3'],
+          '5': ['6']}
+
+print(bfs(graph,'0'))
+----------------------------------------------------------------------------------------------------------------------------
+output:
+['0', '9', '7', '11', '10', '8', '3', '6', '1', '12', '2', '4', '5']
+============================================================================================================================
+============================================================================================================================
+Algoritma Depth First Search
+
+
+
